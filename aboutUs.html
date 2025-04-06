@@ -4,6 +4,26 @@
      http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
   <head>
     <title>About Us</title>
+    <style type ="text/css">
+        .team-container {
+          display: flex;
+          justify-content: center;
+          gap: 20px; 
+        }
+        .team-member {
+          text-align: center;
+        }
+        .team-member img {
+          border-radius: 50%; 
+          margin-bottom: 10px;
+        }
+        .team-member a {
+            color: darkgreen; 
+            text-decoration: none; 
+            font-weight: bold;}
+        .team-member a:hover {
+        color: black;} 
+      </style>
   </head>
   <body>
     <h1>Welcome to our website!</h1>
@@ -19,28 +39,28 @@
     </ul>
     <div>
       <h2>Local farmer website Team</h2>
-      <div >
-          <div >
+      <div class="team-container">
+          <div class="team-member">
               <div>
-                  <img  src="student.jpg" alt="member card" width="150px" height="150px">
+                  <img  src="student.jpg" alt="kothar" width="100px" height="100px">
                   <div>
-                      <h5 >Kothar Al Humaidi</h5>
+                    <a href="malito:s141396@student.squ.edu.om">Kothar Al Humaidi</a>
                   </div>
               </div>
           </div>
-          <div >
-              <div>
-                  <img  src="student.jpg" alt="team card" width="150px" height="150px">
+          <div class="team-member">
+              <div >
+                  <img  src="student.jpg" alt="team card" width="100px" height="100px">
                   <div >
-                      <h5 >Hafsa Al Harrasi</h5>
+                    <a href="malito:s140197@student.squ.edu.om">Hafsa Al Harrasi</a>
                   </div>
               </div>
           </div>
-          <div >
+          <div class="team-member">
               <div>
-                  <img src="student.jpg" alt="team card" width="150px" height="150px">
+                  <img src="student.jpg" alt="team card" width="100px" height="100px">
                   <div >
-                      <h5 >Reem Al Zaabi</h5>
+                    <a href="malito:s140643@student.squ.edu.om">Reem Al Zaabi</a>
                   </div>
               </div>
           </div>
