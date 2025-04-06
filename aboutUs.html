@@ -4,7 +4,31 @@
      http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
   <head>
     <title>About Us</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="MyStyleSheet.css">
     <style type ="text/css">
+      #aboutUs p {
+            font-size: 25px;
+            text-align: center;
+            color: rgb(62, 64, 100);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+
+        .team {
+            width: 660px;
+            margin: auto;
+            color: aliceblue;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            background-color: #becfc2;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
         .team-container {
           display: flex;
           justify-content: center;
@@ -26,18 +50,46 @@
       </style>
   </head>
   <body>
-    <h1>Welcome to our website!</h1>
-    <h3>a website that connects farmer directly with consumers to offer fresh organic produce, we support sustainable farming, help local economies grow and make 
-      it easy for you to access high quality locally grown products. Join us in promoting eco-friendly choices and strengthening communities</h3>
-    
-    <h2>Site objectives</h2>
-    <ul type="circule">
-    <li>Promote sustainable farming practices.</li>
-    <li>Enhance visibility for local farmers.</li>
-    <li>Provide easy access to fresh, organic produce.</li>
-    <li>Support local economies and encourage eco-conscious consumption.</li>
-    </ul>
-    <div>
+    <nav class="navbar" id="navv">
+      <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                      data-target="#myNavbar">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+
+                  <div class="logoContainer">
+                      <img src="logo.png" alt="Logo" class="logo">
+                      <span class="brand-name" id="title">Local Farmer</span>
+                  </div>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav" id="navUl">
+                      <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                      <li><a href="farmerProfile.html" style="color: rgb(255, 248, 248);">Farmer Profiles</a></li>
+                      <li><a href="blog.html" style="color: rgb(255, 248, 248);">Blog</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </nav>
+  <div class="highlighted-section">
+    <div class="pageName">
+        <p>About Us</p><br />
+    </div>
+</div>
+<br />
+
+<div class="container-fluid" id="aboutUs">
+    <p>Welcome to our website!</p>
+    <p>a website that connects farmer directly with consumers to offer fresh organic produce, we support sustainable farming, help local economies grow and make 
+      it easy for you to access high quality locally grown products. Join us in promoting eco-friendly choices and strengthening communities</p>
+    </div>
+
+    <div class="team container-fluid text-center">
       <h2>Local farmer website Team</h2>
       <div class="team-container">
           <div class="team-member">
@@ -66,5 +118,14 @@
           </div>
       </div>
   </div>
+  <div class="footer">
+    <footer class="container-fluid text-center">
+        <p>
+            <a href="https://github.com/reemHaitham/Local-Farmers-Website.git"><img src="gitIcon.png" alt="github icon"
+                    style="height: 40px; width: 60px;"></a>
+        </p>
+    </footer>
+
+</div>
   </body>
 </html>
