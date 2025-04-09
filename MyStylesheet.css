@@ -46,34 +46,35 @@ body{
   }
   
   .navbar {
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 999; 
   }
-    nav ul li{
-      list-style: none;
-      display: inline-block;
-      padding: 0 20px;
-    
-    }
-    nav ul li a{
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-      padding: 0 15px;
-      text-transform: capitalize;
-    }
-    .logoContainer {
-      display: flex;
-      align-items: center;
-      gap: 10px; 
-    }
-    
-    .logo {
-      height: 40px; 
-      width: auto;  
-    }
-    .brand-name {
-      font-size: 1.5em; 
-    }
+nav ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+
+}
+nav ul li a{
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 0 15px;
+  text-transform: capitalize;
+}
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.logo {
+  height: 40px; 
+  width: auto;  
+}
+.brand-name {
+  font-size: 1.5em; 
+}
 
