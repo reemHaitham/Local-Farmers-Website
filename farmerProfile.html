@@ -1,0 +1,213 @@
+<html xmlns = ″http://www.w3.org/1999/xhtml″>
+   <?xml version = ″1.0″ encoding = ″utf-8″ ?>
+ <!DOCTYPE html PUBLIC ″-//W3C//DTD XHTML 1.0 Strict//EN″
+      http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
+   <head>
+     <title>Farmer Profiles</title>
+ 
+     <link rel="stylesheet" href="MyStyleSheet.css">
+     <style type ="text/css">
+         .farmerBox {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-around;
+             margin-top: 20px;
+         }
+ 
+         .profile {
+             background-color: #ffffff;
+             border: 2px solid #006400;
+             width: 250px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+             text-align: center;
+             border-radius: 10px;
+             padding: 15px;
+             margin: 10px;
+         }
+ 
+         .profile img {
+             width: 250px;
+             height: 250px;
+         }
+ 
+         .profile h3 {
+             color: #1c2c1c;
+             margin-top: 5px;
+         }
+ 
+         .profile table {
+             width: 100%;
+             margin-top: 10px;
+             border-collapse: collapse;
+             background-color: #f4f6c2;
+         }
+ 
+ 
+         .profile td {
+             padding: 5px;
+             text-align: left;
+         }
+ 
+         .profile th {
+             padding: 5px ;
+             text-align: left;
+             color: rgb(27, 62, 15);
+         }
+ 
+         .review {
+             margin-top: 40px;
+             background-color: #e8f5e9;
+             padding: 20px;
+             border: 2px solid #006400;
+             border-radius: 10px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+ 
+         .review h2 {
+             color: #006400;
+         }
+ 
+         .reviewframe textarea {
+             width: 100%;
+             height: 150px;
+             padding: 10px;
+             border: 1px solid #006400;
+             border-radius: 10px;
+             margin-bottom: 10px;
+             font-size: 16px;
+         }
+ 
+         .reviewsArea {
+             margin-top: 20px;
+             list-style-type: none;
+             padding: 0;
+         }
+ 
+         .reviewsArea li {
+             background-color: #f0f8f0;
+             border: 1px solid #006400;
+             padding: 10px;
+             border-radius: 5px;
+             margin-bottom: 10px;
+         }
+         .thick{
+             font-weight: bold;
+         }
+</style>
+</head>
+<body>
+  <nav class="navbar" id="navv">
+      <nav>
+          <div >
+              <div>
+
+                  <div class="logoContainer">
+                      <img src="logo.png" alt="Logo" class="logo">
+                      <span class="brand-name" id="title">Local Farmer</span>
+                  </div>
+              </div>
+              <div>
+                  <ul >
+                      <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                      <li><a href="farmerProfile.html" style="color: rgb(255, 248, 248);">Farmer Profiles</a></li>
+                      <li><a href="blog.html" style="color: rgb(255, 248, 248);">Blog</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+    </nav>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/> 
+<div class="highlightedSection">
+  <div class="pageName">
+      <p>Farmer Profiles</p><br />
+  </div>
+</div>
+<div class="farmerBox">
+  <div class="profile">
+      <img src="farmer.jpg" alt="Farmer 1">
+      <h3>John Doe</h3>
+      <table >
+          <tr><th>Farm Name:</th><td>Green Valley</td></tr>
+          <tr><th>Location:</th><td>California</td></tr>
+          <tr><th>Products:</th><td>Organic Vegetables</td></tr>
+          <tr><th>Farming Method:</th><td>Eco-friendly, sustainable</td></tr>
+      </table>
+  </div>
+
+  <div class="profile">
+      <img src="farmer.jpg" alt="Farmer 2">
+      <h3>Alice Smith</h3>
+      <table>
+          <tr><th>Farm Name:</th><td>Sunny Acres</td></tr>
+          <tr><th>Location:</th><td>Texas</td></tr>
+          <tr><th>Products:</th><td>Free-range Eggs, Poultry</td></tr>
+          <tr><th>Farming Method:</th><td>Pasture-raised</td></tr>
+      </table>
+  </div>
+
+  <div class="profile">
+      <img src="farmer.jpg" alt="Farmer 3">
+      <h3>Bob Johnson</h3>
+      <table>
+          <tr><th>Farm Name:</th><td>Hilltop Farms</td></tr>
+          <tr><th>Location:</th><td>Florida</td></tr>
+          <tr><th>Products:</th><td>Citrus Fruits</td></tr>
+          <tr><th>Farming Method:</th><td>Non-GMO</td></tr>
+      </table>
+  </div>
+
+  <div class="profile">
+      <img src="farmer.jpg" alt="Farmer 4">
+      <h3>Mary Evans</h3>
+      <table>
+          <tr><th>Farm Name:</th><td>Riverbend Farm</td></tr>
+          <tr><th>Location:</th><td>Oregon</td></tr>
+          <tr><th>Products:</th><td>Organic Dairy</td></tr>
+          <tr><th>Farming Method:</th><td>Grass-fed</td></tr>
+      </table>
+  </div>
+</div>
+
+<div class="review">
+  <h2>Customer Reviews</h2>
+
+  <div class="reviewframe">
+      <form action="https://httpbin.org/get" method="get">
+      <textarea placeholder="Leave a review..."></textarea>
+      <br/>
+      <input type = "submit"  value = "Submit review" /></form>
+  </div>
+
+  <ul class="reviewsArea">
+      <li>
+          <span class="thick">zainab salim:</span> Amazing produce, always fresh and delivered on time!</li><br/>
+      <li>
+          <span class="thick">Ali abdullah:</span> The eggs from Sunny Acres are the best I've ever had!</li><br/>
+      <li>
+          <span class="thick">kothar Ahmed:</span>Great experience! Will definitely buy again.</li>
+  </ul>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/> 
+
+<div >
+  <footer >
+      <p>
+          <a href="https://github.com/reemHaitham/Local-Farmers-Website.git"><img src="gitIcon.png" alt="github icon"
+                  style="height: 40px; width: 40px;"></a>
+          <a href="malito:localfarmerweb@gmail.com"><img src="emailIcon.png" alt="email icon"
+              style="height: 40px; width: 40px;"></a>
+</p>
+  </footer>
+
+</div>
+</body>
+</html>
