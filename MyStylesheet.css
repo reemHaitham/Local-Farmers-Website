@@ -1,69 +1,71 @@
 body{
-    background-color: #f9faf4;
-  }
-  
-  .highlightedSection {
-    background-color: rgb(175, 199, 175);
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .pageName {
-    border: solid 5px rgb(227, 238, 227);
-    width: 40%;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(24, 22, 19);
-    text-align: center;
-    font-size: 40px;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  #title {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(197, 207, 197);
-  }
-  
-  #navv {
-    background-color: rgb(71, 84, 71);
-  }
-  
-  footer {
-    background-color: rgb(71, 84, 71);
-    padding: 5px;
-    position:fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 60px; 
-    text-align: center;
-    line-height: 30px; 
-     margin-bottom: 0px;
-  }
-  
-  .navbar {
-    position: fixed;
-    top: 0;  
-    width: 100%;
-    z-index: 999; 
-  }
-  nav ul li{
+  background-color: #f9faf4;
+}
+
+.highlightedSection {
+  background-color: rgb(175, 199, 175);
+  height: 100px;
+  width:110%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageName {
+  border: solid 5px rgb(227, 238, 227);
+  width: 40%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(24, 22, 19);
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: rgb(197, 207, 197);
+}
+
+#navv {
+  background-color: rgb(71, 84, 71);
+}
+
+footer {
+  background-color: rgb(71, 84, 71);
+  padding: 5px;
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px; 
+  text-align: center;
+  line-height: 30px; 
+   margin-bottom: 0px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;  
+  width: 100%;
+  z-index: 999; 
+}
+nav ul li{
   list-style: none;
   display: inline-block;
   padding: 0 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-  }
+}
 nav ul li a{
   text-decoration: none;
   color: white;
   font-size: 18px;
   padding: 0 15px;
   text-transform: capitalize;
+  font-family: 'Times New Roman', Times, serif;
+
 }
 .logoContainer {
   display: flex;
@@ -76,7 +78,7 @@ nav ul li a{
   width: auto;  
 }
 .brand-name {
-  font-size: 1.5em; 
+  font-size: 1.25em; 
 
 }
 
