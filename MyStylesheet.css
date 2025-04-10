@@ -25,11 +25,11 @@ body{
   
   #title {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(173, 195, 173);
+    color: rgb(197, 207, 197);
   }
   
   #navv {
-    background-color: rgb(7, 37, 7);
+    background-color: rgb(71, 84, 71);
   }
   
   footer {
@@ -47,16 +47,17 @@ body{
   
   .navbar {
     position: fixed;
-    top: 0;
+    top: 0;  
     width: 100%;
     z-index: 999; 
   }
-nav ul li{
+  nav ul li{
   list-style: none;
   display: inline-block;
   padding: 0 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-}
+  }
 nav ul li a{
   text-decoration: none;
   color: white;
@@ -76,5 +77,6 @@ nav ul li a{
 }
 .brand-name {
   font-size: 1.5em; 
+
 }
 
