@@ -1,0 +1,420 @@
+<html >
+<head>
+    <title>Our Products </title>
+    <link rel="stylesheet" href="MyStyleSheet.css">
+    <style type ="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            color: black;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color:  #becfc2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+    
+        
+        .page-header {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .page-header h1 {
+            color: #4a8f29;
+            margin-bottom: 15px;
+        }
+        
+        .seasonal-banner {
+            background-color: #f8f1d5;
+            border-left: 5px solid #ecd9a3;
+            padding: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .category-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            background-color: white;
+            border: 1px solid #4a8f29;
+            color: #4a8f29;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: #4a8f29;
+            color: white;
+        }
+        
+        .search-box {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            min-width: 250px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-category {
+            color: #4a8f29;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            font-size: 18px;
+            color: #4a8f29;
+        }
+        
+        .add-to-cart {
+            background-color: #4a8f29;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #3a7320;
+        }
+        
+        .newsletter {
+            background-color: #f0f7ed;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .newsletter h2 {
+            color: #4a8f29;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            flex: 1;
+            max-width: 300px;
+        }
+        
+        .newsletter-form button {
+            background-color: #4a8f29;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-section {
+                flex-direction: column;
+            }
+            
+            .category-filter, .search-box {
+                width: 100%;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .newsletter-form input, .newsletter-form button {
+                border-radius: 4px;
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navv">
+        <nav>
+            <div >
+                <div>
+    
+                    <div class="logoContainer">
+                        <img src="logo.png" alt="Logo" class="logo">
+                        <span class="brand-name" id="title">Local Farmer</span>
+                    </div>
+                </div>
+                <div>
+                    <ul >
+                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                        <li><a href="contact.html" style="color: rgb(255, 248, 248);">contact Us</a></li>
+                        <li><a href="registration.html" style="color: rgb(255, 248, 248);">Registration</a></li>
+                        <li><a href="farmerProfile.html" style="color: rgb(255, 248, 248);">Farmer Profiles</a></li>
+                        <li><a href="blog.html" style="color: rgb(255, 248, 248);">Blog</a></li>
+                        <li><a href="products.html" style="color: rgb(255, 248, 248);">Products</a></li>
+                        <li><a href="dashboard.html" style="color: rgb(255, 248, 248);">Dashboard</a></li> 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+      </nav>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/> 
+    <header>
+        <div class="container">
+            <h1>Our Farm Products</h1>
+            <p>Fresh from our fields to your table seasonal, organic produce grown with care</p>
+        </div>
+    </header>
+
+    
+    <div class="container">
+        <div class="page-header">
+            <p><strong>organic produce grown with care</strong></p>
+        </div>
+        
+        <div class="seasonal-banner">
+            <p>🌱 <strong>In Season Now:</strong> Tomatoes, Cucumbers, Eggplants, Apricots and Pomegranates!</p>
+        </div>
+        
+        <div class="filter-section">
+            <div class="category-filter">
+                <button class="category-btn active">All Products</button>
+                <button class="category-btn">Fruit & Vegetables</button>
+                <button class="category-btn">Dairy & Poultry</button>
+                <button class="category-btn">Handmade & Organic products</button>
+            </div>
+            
+            <input type="text" class="search-box" value="Search products...">
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://yaraurl.com/j0r1');"></div>
+                <div class="product-info">
+                    <div class="product-category">Fruits</div>
+                    <h3 class="product-title">Organic Tomatoes</h3>
+                    <p class="product-description">Plump, sun-ripened tomatoes bursting with flavor. Available March through May.</p>
+                    <div class="product-footer">
+                        <span class="product-price">1.5/lb Rials</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="product-info">
+                    <div class="product-category">Vegetables</div>
+                    <h3 class="product-title">Organic Carrots</h3>
+                    <p class="product-description">Variety of colors and flavors. Grown without synthetic pesticides.</p>
+                    <div class="product-footer">
+                        <span class="product-price">1.09/lb Rials</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://cdn.sanity.io/images/7mpmplf0/production/8e750dc706219712a1bf0ed86f5eeb366cdb5523-1280x800.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-category">Eggs & Dairy</div>
+                    <h3 class="product-title">Farm Fresh Eggs</h3>
+                    <p class="product-description">Free-range eggs from our happy hens. Available year-round.</p>
+                    <div class="product-footer">
+                        <span class="product-price">2.03/dozen Rials</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="product-info">
+                    <div class="product-category">Vegetables</div>
+                    <h3 class="product-title">Potato</h3>
+                    <p class="product-description">Earthy, hearty potatoes freshly harvested for rich flavor and texture. Harvested weekly.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$3.50/bag</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://daenskitchen.com/wp-content/uploads/2025/03/Strawberry-Jam-Featured-1200-500x500.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-category">Handmade & Organic products</div>
+                    <h3 class="product-title">Strawberry Jam</h3>
+                    <p class="product-description">Made with our organic strawberries. No artificial ingredients.</p>
+                    <div class="product-footer">
+                        <span class="product-price">4.5/jar Rials</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://healthyfamilyproject.com/wp-content/uploads/2020/05/Pomegranate-background.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-category">Fruits</div>
+                    <h3 class="product-title">Pomegranates</h3>
+                    <p class="product-description">Ruby-red pomegranates filled with sweet-tart jewels. Available August through October.</p>
+                    <div class="product-footer">
+                        <span class="product-price">2.5/bunch rial</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://cdn.alweb.com/thumbs/daleelalnabatat/article/fit710x532/%D8%AA%D9%82%D9%84%D9%8A%D9%85-%D8%B4%D8%AC%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%88%D8%AA-%D9%83%D9%84-%D9%85%D8%A7-%D9%8A%D9%87%D9%85%D9%83.jpg');"></div>
+                <div class="product-info">
+                    <div class="product-category">Fruits</div>
+                    <h3 class="product-title">Berries</h3>
+                    <p class="product-description">Antioxidant-rich berries perfect for baking or snacking.</p>
+                    <div class="product-footer">
+                        <span class="product-price">1.99/pint</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://alrustaq.net/online-shopping/wp-content/uploads/2020/04/%D8%AE%D9%8A%D8%A7%D8%B1-1.png');"></div>
+                <div class="product-info">
+                    <div class="product-category">Vegetables</div>
+                    <h3 class="product-title">Cucumber</h3>
+                    <p class="product-description">Cool, crisp cucumbers perfect for refreshing snacks and salads. Available March through May.</p>
+                    <div class="product-footer">
+                        <span class="product-price">2.99/bunch Rials</span>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="newsletter">
+            <h2>Join Our Farm Newsletter</h2>
+            <p>Get updates on seasonal availability, farm events, and special offers.</p>
+            <form class="newsletter-form">
+                <input type="email" value="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <footer >
+        <p>
+            <a href="https://github.com/reemHaitham/Local-Farmers-Website.git"><img src="gitIcon.png" alt="github icon"
+                    style="height: 40px; width: 40px;"></a>
+            <a href="malito:localfarmerweb@gmail.com"><img src="emailIcon.png" alt="email icon"
+                style="height: 40px; width: 40px;"></a>
+  </p>
+    </footer>
+
+</body>
+</html>
