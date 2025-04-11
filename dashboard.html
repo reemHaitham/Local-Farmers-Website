@@ -1,0 +1,621 @@
+<html >
+<head>
+    <title>Cutomer Dashboard</title>
+    <link rel="stylesheet" href="MyStyleSheet.css">
+    <style type ="text/css">
+        :root {
+            --primary: #4a8f29;
+            --primary-dark: #3a7320;
+            --secondary: #f8f1d5;
+            --light: #f9f9f9;
+            --dark: #333;
+            --gray: #ddd;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+        }
+        
+        .profile-card {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--primary);
+        }
+        
+        .profile-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .profile-location {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .nav-menu {
+            padding: 20px 0;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--secondary);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .nav-item i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 30px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .notification-bell {
+            position: relative;
+            font-size: 20px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Dashboard Cards */
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .view-all {
+            color: var(--primary);
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        /* Orders Table */
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .orders-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background-color: var(--light);
+            font-weight: 600;
+        }
+        
+        .orders-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .order-id {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-processing {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-shipped {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        
+        .status-delivered {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        /* Favorite Farmers Grid */
+        .farmers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .farmer-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .farmer-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .farmer-img {
+            height: 120px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .farmer-info {
+            padding: 15px;
+        }
+        
+        .farmer-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .farmer-specialty {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+        .farmer-rating {
+            color: #ffc107;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .farmer-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Saved Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .product-img {
+            height: 120px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .farmers-grid, .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 15px;
+            }
+            
+            .orders-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" id="navv">
+        <nav>
+            <div >
+                <div>
+    
+                    <div class="logoContainer">
+                        <img src="logo.png" alt="Logo" class="logo">
+                        <span class="brand-name" id="title">Local Farmer</span>
+                    </div>
+                </div>
+                <div>
+                    <ul >
+                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                        <li><a href="contact.html" style="color: rgb(255, 248, 248);">contact Us</a></li>
+                        <li><a href="registration.html" style="color: rgb(255, 248, 248);">Registration</a></li>
+                        <li><a href="farmerProfile.html" style="color: rgb(255, 248, 248);">Farmer Profiles</a></li>
+                        <li><a href="blog.html" style="color: rgb(255, 248, 248);">Blog</a></li>
+                        <li><a href="products.html" style="color: rgb(255, 248, 248);">Products</a></li>
+                        <li><a href="dashboard.html" style="color: rgb(255, 248, 248);">Dashboard</a></li> 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+      </nav>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/> 
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg" alt="Profile" class="profile-img">
+                <h3 class="profile-name">Sarah salim</h3>
+                <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Rustaq, OM</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>My Orders</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-tractor"></i>
+                    <span>My Farmers</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Delivery Addresses</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Account Settings</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">My Dashboard</h1>
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </div>
+            
+            <!-- Recent Orders Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2 class="card-title">Recent Orders</h2>
+                    <span class="view-all">View All</span>
+                </div>
+                
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="order-id">#FV-78945</td>
+                            <td>Jun 12, 2023</td>
+                            <td>5 items</td>
+                            <td>42.50 Rials</td>
+                            <td><span class="status status-delivered">Delivered</span></td>
+                            <td><button class="btn btn-outline">Reorder</button></td>
+                        </tr>
+                        <tr>
+                            <td class="order-id">#FV-78231</td>
+                            <td>Jun 8, 2023</td>
+                            <td>3 items</td>
+                            <td>28.75 Rials</td>
+                            <td><span class="status status-shipped">Shipped</span></td>
+                            <td><button class="btn btn-outline">Track</button></td>
+                        </tr>
+                        <tr>
+                            <td class="order-id">#FV-78102</td>
+                            <td>Jun 5, 2023</td>
+                            <td>7 items</td>
+                            <td>65.20 Rials</td>
+                            <td><span class="status status-processing">Processing</span></td>
+                            <td><button class="btn btn-outline">View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Favorite Farmers Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2 class="card-title">Favorite Farmers</h2>
+                    <span class="view-all">View All</span>
+                </div>
+                
+                <div class="farmers-grid">
+                    <!-- Farmer 1 -->
+                    <div class="farmer-card">
+                        <div class="farmer-img" style="background-image: url('https://cdn.al-ain.com/lg/images/2023/8/20/133-212557-british-farm-no-nudity_700x400.jpg');"></div>
+                        <div class="farmer-info">
+                            <h4 class="farmer-name">Green Valley Farms</h4>
+                            <p class="farmer-specialty">Organic Vegetables & Fruits</p>
+                            <div class="farmer-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(24)</span>
+                            </div>
+                            <div class="farmer-actions">
+                                <button class="btn btn-primary">Shop Now</button>
+                                <button class="btn btn-outline"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Farmer 2 -->
+                    <div class="farmer-card">
+                        <div class="farmer-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrNLPWqE2PNlZkbQwTAp9n5M4szbNZh87vIeavS8VHkXeznmHJMn94VCo58EiiWjJ6yLQ&usqp=CAU');"></div>
+                        <div class="farmer-info">
+                            <h4 class="farmer-name">Sunny Happy Farm</h4>
+                            <p class="farmer-specialty">Seasonal Fruits & Jams</p>
+                            <div class="farmer-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(18)</span>
+                            </div>
+                            <div class="farmer-actions">
+                                <button class="btn btn-primary">Shop Now</button>
+                                <button class="btn btn-outline"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Farmer 3 -->
+                    <div class="farmer-card">
+                        <div class="farmer-img" style="background-image: url('https://www.nessma.tv/uploads/news/bb4755db8c71ce11f91df394a06d963972.jpg');"></div>
+                        <div class="farmer-info">
+                            <h4 class="farmer-name">Happy Chicken Farm</h4>
+                            <p class="farmer-specialty">Free-Range Eggs & Poultry</p>
+                            <div class="farmer-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(32)</span>
+                            </div>
+                            <div class="farmer-actions">
+                                <button class="btn btn-primary">Shop Now</button>
+                                <button class="btn btn-outline"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Saved Products Card -->
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h2 class="card-title">Saved Products</h2>
+                    <span class="view-all">View All</span>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTev3nhf2VhgUnhm6y479TWLZpz-mll8b5mGw&s');"></div>
+                        <div class="product-info">
+                            <h4 class="product-name">Organic Strawberries</h4>
+                            <p class="product-price">4.99/lb Rials</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary">Add to Cart</button>
+                                <button class="btn btn-outline"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('https://cdn.alweb.com/thumbs/fitness/article/fit710x532/%D9%83%D9%85-%D8%A8%D9%8A%D8%B6%D8%A9-%D9%8A%D9%88%D9%85%D9%8A%D8%A7-%D9%84%D9%83%D9%85%D8%A7%D9%84-%D8%A7%D9%84%D8%A3%D8%AC%D8%B3%D8%A7%D9%85.jpg');"></div>
+                        <div class="product-info">
+                            <h4 class="product-name">Farm Fresh Eggs</h4>
+                            <p class="product-price">5.99/dozen Rials</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary">Add to Cart</button>
+                                <button class="btn btn-outline"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaYk2aY9eae86aHS25JCK5p-cS4SkfqOfyQg&s');"></div>
+                        <div class="product-info">
+                            <h4 class="product-name">Mixed Salad Greens</h4>
+                            <p class="product-price">3.50/bag Rials</p>
+                            <div class="product-actions">
+                                <button class="btn btn-primary">Add to Cart</button>
+                                <button class="btn btn-outline"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer >
+        <p>
+            <a href="https://github.com/reemHaitham/Local-Farmers-Website.git"><img src="gitIcon.png" alt="github icon"
+                    style="height: 40px; width: 40px;"></a>
+            <a href="malito:localfarmerweb@gmail.com"><img src="emailIcon.png" alt="email icon"
+                style="height: 40px; width: 40px;"></a>
+  </p>
+    </footer>
+</body>
+</html>
