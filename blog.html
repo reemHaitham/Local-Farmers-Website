@@ -4,245 +4,268 @@
    http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
 <head>
   <title>Agricultural Blog</title>
-
-  <link rel="stylesheet" href="MyStyleSheet.css">
-  <style type ="text/css">
-    .tab {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50vh;
-      padding: 20px;
-    }
-
-    
-    table {
-      border: 2px solid darkgreen; /* Dark green border */
-      width: 60%; /* Table width */
-      height: 50%;
-      background-color: beige; /* Light green background */
-      text-align: center;
-      border-collapse: collapse; /* Merge borders */
-    }
-
-    /* Table Caption */
-    caption {
-      font-size: 24px;
-      text-align: center;
-      font-weight: bold;
-      color: darkgreen;
-      margin-bottom: 20px;
-    }
-    
-    .section {
-      padding: 20px;
-      background-color: #fff;
-      margin: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(39, 74, 40);
-    }
-
-    /* Heading Styles */
-    .prime {
-      color: #3c763d;
-      margin-bottom: 10px;
-    }
-
-    span.thick-text {
-      font-weight: bold;
-    }
-
-
-    td {
-      padding: 12px;
-      font-size: 18px;
-      color: darkgreen; 
-    }
-
-   
-    tr:hover {
-      background-color: #e2f7e2;
-    }
-
- 
-    table a {
-      color: gray;
-      text-decoration: none;
-    }
-
-    table a:hover {
-      color: black; 
-    }
-
-    </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
-<body>
-  <nav class="navbar" id="navv">
-    <nav>
-        <div >
-            <div>
-
-                <div class="logoContainer">
-                    <img src="logo.png" alt="Logo" class="logo">
-                    <span class="brand-name" id="title">Local Farmer</span>
-                </div>
-            </div>
-            <div>
-                <ul >
-                  <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-                  <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-                  <li><a href="registration.html" style="color: rgb(255, 248, 248);">Registration</a></li>
-                  <li><a href="products.html" style="color: rgb(255, 248, 248);">Products</a></li>
-                  <li><a href="farmerProfile.html" style="color: rgb(255, 248, 248);">Farmer Profiles</a></li>
-                  <li><a href="blog.html" style="color: rgb(255, 248, 248);">Blog</a></li>
-                  <li><a href="dashboard.html" style="color: rgb(255, 248, 248);">Dashboard</a></li> 
-                  <li><a href="contact.html" style="color: rgb(255, 248, 248);">contact Us</a></li>
-                </ul>
-            </div>
+<body class="bg-light pb-5">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary py-3">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <img src="logo.png" alt="Logo" class="me-3" style="height: 50px;">
+            <span class="navbar-brand mb-0 h1 fs-4">Local Farmer</span>
         </div>
-    </nav>
-
-  </nav>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/> 
-<div class="highlightedSection">
-    <div class="pageName">
-        <p>Agricultural Blog</p><br />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link fs-5 px-3" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link fs-5 px-3" href="aboutUs.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link fs-5 px-3" href="registration.html">Registration</a></li>
+                <li class="nav-item"><a class="nav-link fs-5 px-3" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link fs-5 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
+                <li class="nav-item"><a class="nav-link active fs-5 px-3" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link fs-5 px-3" href="dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link fs-5 px-3" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
     </div>
-</div>
-<br />
-<div class="tab">
-  <table id="table">
-    <caption>content categorized</caption>
-    <tr><td>Farming Tips</td><td><a href = "#tips"> click to see</a></td></tr>
-    <tr><td>farming practices</td><td><a href = "#Practices"> click to see</a></td></tr>
-    <tr><td>Seasonal Crop Guides</td><td><a href = "#crop"> click to see</a></td></tr>
-  </table>
-</div>
-<h2 id="tips" style="color: rgb(16, 69, 16);">Farming Tips</h2>
+</nav>
 
-<div class="section">
-  <h3 class="prime">1. Choose the Right Crops for Your Climate</h3>
-  <p class="text"><span class="thick-text">Why:</span> Different crops grow better in different climates, temperatures, and soil types. For instance, tomatoes thrive in warm climates, while crops like lettuce or spinach do better in cooler weather.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Do some research or ask local farmers to determine the best crops suited for your region.</p>
+  <div id="table" class="mt-5 pt-4"></div>
 
-  <h3 class="prime">2. Use Quality Seeds</h3>
-  <p class="text"><span class="thick-text">Why:</span> The quality of your seeds directly affects the quality of your harvest. Healthy seeds produce strong, productive plants.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Always buy seeds from a reputable source and choose varieties known for being disease-resistant and high-yielding.</p>
-
-  <h3 class="prime">3. Practice Crop Rotation</h3>
-  <p class="text"><span class="thick-text">Why:</span> Rotating your crops each season helps prevent soil depletion, reduces pest buildup, and avoids the spread of plant diseases.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Rotate your crops every year—don’t plant the same type of crop in the same soil more than once. For example, after growing corn, plant legumes (like beans) to replenish nitrogen levels in the soil.</p>
-
-  <h3 class="prime">4. Water Wisely</h3>
-  <p class="text"><span class="thick-text">Why:</span> Over-watering or under-watering can harm crops. Consistent and appropriate watering encourages healthy root systems and strong plant growth.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Water in the early morning or late afternoon to avoid evaporation. Ensure the soil is moist but not soggy. Using a drip irrigation system helps direct water to the roots.</p>
-
-  <h3 class="prime">5. Prepare Your Soil Properly</h3>
-  <p class="text"><span class="thick-text">Why:</span> Good soil is essential for healthy plants. Poor soil leads to poor crop yields.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Test your soil's pH and nutrient levels, and amend it with compost, organic matter, or fertilizers as needed to improve soil quality.</p>
-
-  <h3 class="prime">6. Mulch Your Plants</h3>
-  <p class="text"><span class="thick-text">Why:</span> Mulch helps retain moisture, suppress weeds, and regulate soil temperature, preventing plants from becoming stressed.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Spread a layer of organic mulch (like straw, leaves, or grass clippings) around your plants. Be sure to leave space around the plant stems to avoid rot.</p>
-
-  <h3 class="prime">7. Control Pests and Diseases Early</h3>
-  <p class="text"><span class="thick-text">Why:</span> Pests and diseases can ruin crops if not controlled. Early detection and treatment make a huge difference.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Regularly inspect your plants for signs of pests or disease (like yellowing leaves or holes in leaves). Use natural remedies like neem oil or introduce beneficial insects (e.g., ladybugs) to help control pests.</p>
-
-  <h3 class="prime">8. Fertilize Wisely</h3>
-  <p class="text"><span class="thick-text">Why:</span> Plants need nutrients to grow. Over-fertilizing can harm plants, while under-fertilizing can stunt growth.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Choose fertilizers that match the needs of your plants. Organic compost is a good option. Avoid over-fertilizing, and apply nutrients according to the specific needs of your crops.</p>
-
-  <h3 class="prime">9. Weed Regularly</h3>
-  <p class="text"><span class="thick-text">Why:</span> Weeds compete with crops for nutrients, water, and sunlight. If left unchecked, weeds can reduce your harvest.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Pull weeds regularly by hand or use a hoe to uproot them. Mulching also helps reduce weed growth by blocking sunlight.</p>
-
-  <h3 class="prime">10. Monitor Weather Patterns</h3>
-  <p class="text"><span class="thick-text">Why:</span> Weather plays a big role in plant health. Frost, drought, or extreme temperatures can damage crops.</p>
-  <p class="text"><span class="thick-text">Tip:</span> Stay informed about weather forecasts, especially during planting or harvest times. Protect plants with row covers during frost or water them extra during dry spells.</p>
-</div>
-<a href = "#table" style="color: gray; text-decoration: none;" > <p style="text-align: center;">go to options</p></a>
-<h2 id="Practices" style="color: rgb(16, 69, 16);">farming practices</h2>
-<div class="section">
-  <h3 class="prime">1. Soil preparation</h3>
-  <p class="text">The soil in which a crop will be grown is prepared by plowing, leveling, and manuring it before it is raised. Using a plough to dig and loosen soil is known as ploughing. This aids in the soil's appropriate aeration. Leveling is the practice of uniformly distributing and leveling the soil following plowing. After that, the soil is manured.</p>
-
-  <h3 class="prime">2. Sowing</h3>
-  <p class="text">The first step in the sowing process is choosing seeds from high-quality crop strains.  Sowing is the process of distributing these seeds throughout the field following soil preparation.  Seeds can be sown manually, with the aid of seed drilling equipment, or both.  Certain crops, such as paddy, are first raised as seedlings in a small space before being moved to the main field.</p>
-
-  <h3 class="prime">3. Manuring</h3>
-  <p class="text"> For crops to develop and yield, they require nutrients.  Nutrients must therefore be supplied at regular intervals.  The process of manuring involves adding nutritional supplements, which can be either chemical (fertilizers) or natural (manure).  The breakdown result of animal and plant waste is manure.  Fertilizers are commercially produced chemical compounds made of plant nutrients.  Manure restores soil fertility in addition to giving crops nourishment.  Leguminous plant planting, crop rotation, and vermicomposting are further techniques for replenishing soil.</p>
-
-  <h3 class="prime">4. Irrigation</h3>
-  <p class="text">Irrigation refers to the provision of water. Water sources can include wells, ponds, lakes, canals, and dams. Excessive irrigation might cause waterlogging and harm the crops. The frequency and gap between consecutive irrigations must be regulated.   </p>
-
-  <h3 class="prime">5. Weeding</h3>
-  <p class="text"> Weeds are undesirable plants that grow among cultivated crops. They are eliminated through the application of weedicides, by manually pulling them out by hand, and some are taken out during soil preparation.   </p>
-
-  <h3 class="prime">6. Harvesting</h3>
-  <p class="text">When the crop reaches maturity, it is cut and collected; this process is referred to as harvesting. After harvesting, grains are extracted from the chaff either through threshing or manually in smaller quantities (winnowing).   </p>
-
-  <h3 class="prime">7. Storage</h3>
-  <p class="text">The harvested grains are kept in granaries or storage bins at warehouses for future use or sale. Hence, crop protection techniques must improve. To safeguard grains from pests and rodents, processes like cleaning, drying, and fumigation are carried out before storage. </p>
-</div>
-<a href = "#table" style="color: gray; text-decoration: none;"> <p style="text-align: center;">go to options</p></a>
-
-<h2 id="crop" style="color: rgb(16, 69, 16);">Seasonal Crop Guides</h2>
-<div class="section">
-  <h3 class="prime">Spring</h3>
-  <ul type="square" class="text">
-    <li>Season of renewal and growth.</li>
-    <li>Ground thaws and temperatures rise, making it the perfect time to plant cool-season crops.</li>
-    <li>Vegetables like lettuce, spinach, peas, and radishes thrive in cooler temperatures.</li>
-    <li>Time to plant potatoes and onions, which will be ready for harvest in the summer.</li>
-  </ul>
-
-  <h3 class="prime">Summer</h3>
-  <ul type="square" class="text">
-    <li>Warm-season crops like tomatoes, peppers, cucumbers, and beans flourish in the heat.    </li>
-    <li>Corn, a staple crop in Ohio, is planted in late spring and early summer.</li>
-    <li>Farmers work diligently to ensure crops receive enough water and nutrients during longer, hotter days.</li>
-    <li>Active season with significant focus on crop care and maintenance.</li>
-  </ul>
-
-  <h3 class="prime">Fall</h3>
-  <ul type="square" class="text">
-    <li>The season of harvest — time to gather the rewards of hard work.    </li>
-    <li>Crops like pumpkins, squash, and sweet potatoes are ready for harvest.</li>
-    <li>Apples, another key crop in Ohio, are harvested in fall.    </li>
-    <li>Farmers plant cover crops to protect and enrich the soil for the next growing season.</li>
-    </ul>
- 
-  <h3 class="prime">Winter</h3>
-  <ul type="square" class="text">
-    <li>Appears to be a quiet season but is key for planning and preparation.</li>
-    <li>Time for equipment repairs, crop rotation planning, and ordering seeds for the upcoming year.</li>
-    <li>A time for reflection on the past season’s successes and challenges, learning from experience to improve future harvests.</li>
-    </ul>
+  <div class=" d-flex justify-content-center align-items-center py-5 w-100">
+    <div class="border border-5 border-success d-flex justify-content-center align-items-center text-center p-3 w-50">
+      <h1 class="m-0 display-4">Agricultural Blog</h1>
+    </div>
   </div>
-  <a href = "#table" style="color: gray; text-decoration: none;"> <p style="text-align: center;">go to options</p></a>
+    
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+  <div class="container mt-4">
+    <table class="table table-bordered table-hover w-75 mx-auto">
+      <caption class="text-center  text-success fs-5 fw-bold">Content Categorized</caption>
+      <tbody>
+        <tr><td>Farming Tips</td><td><a href="#tips" class="text-decoration-none btn btn-outline-success">Click to see</a></td></tr>
+        <tr><td>Farming Practices</td><td><a href="#Practices" class="text-decoration-none btn btn-outline-success">Click to see</a></td></tr>
+        <tr><td>Seasonal Crop Guides</td><td><a href="#crop" class="text-decoration-none btn btn-outline-success">Click to see</a></td></tr>
+      </tbody>
+    </table>
+  </div>
 
-<div >
-  <footer >
-    <p>
-        <a href="https://github.com/reemHaitham/Local-Farmers-Website.git"><img src="gitIcon.png" alt="github icon"
-                style="height: 40px; width: 40px;"></a>
-        <a href="malito:localfarmerweb@gmail.com"><img src="emailIcon.png" alt="email icon"
-            style="height: 40px; width: 40px;"></a>
-</p>
-</footer>
+  <div class="container mt-5" id="tips">
+    <h2 class="text-success mb-4">Farming Tips</h2>
+    
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">1. Choose the Right Crops for Your Climate</h3>
+      <p class="card-text"><strong>Why:</strong> Different crops grow better in different climates, temperatures, and soil types. For instance, tomatoes thrive in warm climates, while crops like lettuce or spinach do better in cooler weather.</p>
+      <p class="card-text"><strong>Tip:</strong> Do some research or ask local farmers to determine the best crops suited for your region.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">2. Use Quality Seeds</h3>
+      <p class="card-text"><strong>Why:</strong> The quality of your seeds directly affects the quality of your harvest. Healthy seeds produce strong, productive plants.</p>
+      <p class="card-text"><strong>Tip:</strong> Always buy seeds from a reputable source and choose varieties known for being disease-resistant and high-yielding.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">3. Practice Crop Rotation</h3>
+      <p class="card-text"><strong>Why:</strong> Rotating your crops each season helps prevent soil depletion, reduces pest buildup, and avoids the spread of plant diseases.</p>
+      <p class="card-text"><strong>Tip:</strong> Rotate your crops every year—don't plant the same type of crop in the same soil more than once. For example, after growing corn, plant legumes (like beans) to replenish nitrogen levels in the soil.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">4. Water Wisely</h3>
+      <p class="card-text"><strong>Why:</strong> Over-watering or under-watering can harm crops. Consistent and appropriate watering encourages healthy root systems and strong plant growth.</p>
+      <p class="card-text"><strong>Tip:</strong> Water in the early morning or late afternoon to avoid evaporation. Ensure the soil is moist but not soggy. Using a drip irrigation system helps direct water to the roots.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">5. Prepare Your Soil Properly</h3>
+      <p class="card-text"><strong>Why:</strong> Good soil is essential for healthy plants. Poor soil leads to poor crop yields.</p>
+      <p class="card-text"><strong>Tip:</strong> Test your soil's pH and nutrient levels, and amend it with compost, organic matter, or fertilizers as needed to improve soil quality.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">6. Mulch Your Plants</h3>
+      <p class="card-text"><strong>Why:</strong> Mulch helps retain moisture, suppress weeds, and regulate soil temperature, preventing plants from becoming stressed.</p>
+      <p class="card-text"><strong>Tip:</strong> Spread a layer of organic mulch (like straw, leaves, or grass clippings) around your plants. Be sure to leave space around the plant stems to avoid rot.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">7. Control Pests and Diseases Early</h3>
+      <p class="card-text"><strong>Why:</strong> Pests and diseases can ruin crops if not controlled. Early detection and treatment make a huge difference.</p>
+      <p class="card-text"><strong>Tip:</strong> Regularly inspect your plants for signs of pests or disease (like yellowing leaves or holes in leaves). Use natural remedies like neem oil or introduce beneficial insects (e.g., ladybugs) to help control pests.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">8. Fertilize Wisely</h3>
+      <p class="card-text"><strong>Why:</strong> Plants need nutrients to grow. Over-fertilizing can harm plants, while under-fertilizing can stunt growth.</p>
+      <p class="card-text"><strong>Tip:</strong> Choose fertilizers that match the needs of your plants. Organic compost is a good option. Avoid over-fertilizing, and apply nutrients according to the specific needs of your crops.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">9. Weed Regularly</h3>
+      <p class="card-text"><strong>Why:</strong> Weeds compete with crops for nutrients, water, and sunlight. If left unchecked, weeds can reduce your harvest.</p>
+      <p class="card-text"><strong>Tip:</strong> Pull weeds regularly by hand or use a hoe to uproot them. Mulching also helps reduce weed growth by blocking sunlight.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">10. Monitor Weather Patterns</h3>
+      <p class="card-text"><strong>Why:</strong> Weather plays a big role in plant health. Frost, drought, or extreme temperatures can damage crops.</p>
+      <p class="card-text"><strong>Tip:</strong> Stay informed about weather forecasts, especially during planting or harvest times. Protect plants with row covers during frost or water them extra during dry spells.</p>
+    </div>
+  </div>
+
+    <div class="text-center mt-4">
+      <a href="#table" class="btn btn-outline-success">Go to options</a>
+    </div>
+  </div>
+
+  <div class="container mt-5" id="Practices">
+    <h2 class="text-success mb-4">Farming Practices</h2>
+    
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">1. Soil Preparation</h3>
+      <p class="card-text">The soil in which a crop will be grown is prepared by plowing, leveling, and manuring it before it is raised. Using a plough to dig and loosen soil is known as ploughing. This aids in the soil's appropriate aeration. Leveling is the practice of uniformly distributing and leveling the soil following plowing. After that, the soil is manured.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">2. Sowing</h3>
+      <p class="card-text">The first step in the sowing process is choosing seeds from high-quality crop strains. Sowing is the process of distributing these seeds throughout the field following soil preparation. Seeds can be sown manually, with the aid of seed drilling equipment, or both. Certain crops, such as paddy, are first raised as seedlings in a small space before being moved to the main field.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">3. Manuring</h3>
+      <p class="card-text">For crops to develop and yield, they require nutrients. Nutrients must therefore be supplied at regular intervals. The process of manuring involves adding nutritional supplements, which can be either chemical (fertilizers) or natural (manure). The breakdown result of animal and plant waste is manure. Fertilizers are commercially produced chemical compounds made of plant nutrients. Manure restores soil fertility in addition to giving crops nourishment. Leguminous plant planting, crop rotation, and vermicomposting are further techniques for replenishing soil.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">4. Irrigation</h3>
+      <p class="card-text">Irrigation refers to the provision of water. Water sources can include wells, ponds, lakes, canals, and dams. Excessive irrigation might cause waterlogging and harm the crops. The frequency and gap between consecutive irrigations must be regulated.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">5. Weeding</h3>
+      <p class="card-text">Weeds are undesirable plants that grow among cultivated crops. They are eliminated through the application of weedicides, by manually pulling them out by hand, and some are taken out during soil preparation.</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">6. Harvesting</h3>
+      <p class="card-text">When the crop reaches maturity, it is cut and collected; this process is referred to as harvesting. After harvesting, grains are extracted from the chaff either through threshing or manually in smaller quantities (winnowing).</p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">7. Storage</h3>
+      <p class="card-text">The harvested grains are kept in granaries or storage bins at warehouses for future use or sale. Hence, crop protection techniques must improve. To safeguard grains from pests and rodents, processes like cleaning, drying, and fumigation are carried out before storage.</p>
+    </div>
+  </div>
+
+    <div class="text-center mt-4">
+      <a href="#table" class="btn btn-outline-success">Go to options</a>
+    </div>
+  </div>
+
+  <div class="container mt-5" id="crop">
+    <h2 class="text-success mb-4">Seasonal Crop Guides</h2>
+    
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">Spring</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Season of renewal and growth.</li>
+        <li class="list-group-item">Ground thaws and temperatures rise, making it the perfect time to plant cool-season crops.</li>
+        <li class="list-group-item">Vegetables like lettuce, spinach, peas, and radishes thrive in cooler temperatures.</li>
+        <li class="list-group-item">Time to plant potatoes and onions, which will be ready for harvest in the summer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">Summer</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Warm-season crops like tomatoes, peppers, cucumbers, and beans flourish in the heat.</li>
+        <li class="list-group-item">Corn, a staple crop in Ohio, is planted in late spring and early summer.</li>
+        <li class="list-group-item">Farmers work diligently to ensure crops receive enough water and nutrients during longer, hotter days.</li>
+        <li class="list-group-item">Active season with significant focus on crop care and maintenance.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">Fall</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">The season of harvest — time to gather the rewards of hard work.</li>
+        <li class="list-group-item">Crops like pumpkins, squash, and sweet potatoes are ready for harvest.</li>
+        <li class="list-group-item">Apples, another key crop in Ohio, are harvested in fall.</li>
+        <li class="list-group-item">Farmers plant cover crops to protect and enrich the soil for the next growing season.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title">Winter</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Appears to be a quiet season but is key for planning and preparation.</li>
+        <li class="list-group-item">Time for equipment repairs, crop rotation planning, and ordering seeds for the upcoming year.</li>
+        <li class="list-group-item">A time for reflection on the past season's successes and challenges, learning from experience to improve future harvests.</li>
+      </ul>
+    </div>
+  </div>
 
 
-</div>
+    <div class="text-center mt-4">
+      <a href="#table" class="btn btn-outline-success">Go to options</a>
+    </div>
+  </div>
+
+  <footer class="fixed-bottom bg-secondary py-2">
+    <div class="text-center">
+      <a href="https://github.com/reemHaitham/Local-Farmers-Website.git" >
+        <img src="gitIcon.png" alt="github icon"
+        class="me-2" style="height: 40px;">
+      </a>
+      <a href="mailto:localfarmerweb@gmail.com" >
+        <img src="emailIcon.png" alt="github icon"
+        class="me-2" style="height: 40px;">
+      </a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
