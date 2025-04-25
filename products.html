@@ -1,418 +1,406 @@
 <html >
 <head>
-    <title>Our Products </title>
-    <link rel="stylesheet" href="MyStyleSheet.css">
-    <style type ="text/css">
-        * {
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            color: black;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background-color:  #becfc2;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-    
-        
-        .page-header {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .page-header h1 {
-            color: #4a8f29;
-            margin-bottom: 15px;
-        }
-        
-        .seasonal-banner {
-            background-color: #f8f1d5;
-            border-left: 5px solid #ecd9a3;
-            padding: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .filter-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .category-filter {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .category-btn {
-            background-color: white;
-            border: 1px solid #4a8f29;
-            color: #4a8f29;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .category-btn:hover, .category-btn.active {
-            background-color: #4a8f29;
-            color: white;
-        }
-        
-        .search-box {
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            min-width: 250px;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .product-image {
-            height: 200px;
-            background-color: #eee;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-category {
-            color: #4a8f29;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        
-        .product-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .product-description {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .product-price {
-            font-weight: bold;
-            font-size: 18px;
-            color: #4a8f29;
-        }
-        
-        .add-to-cart {
-            background-color: #4a8f29;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .add-to-cart:hover {
-            background-color: #3a7320;
-        }
-        
-        .newsletter {
-            background-color: #f0f7ed;
-            padding: 40px;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 40px;
-        }
-        
-        .newsletter h2 {
-            color: #4a8f29;
-            margin-bottom: 15px;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-form input {
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px 0 0 4px;
-            flex: 1;
-            max-width: 300px;
-        }
-        
-        .newsletter-form button {
-            background-color: #4a8f29;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        
-        @media (max-width: 768px) {
-            .filter-section {
-                flex-direction: column;
-            }
-            
-            .category-filter, .search-box {
-                width: 100%;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .newsletter-form input, .newsletter-form button {
-                border-radius: 4px;
-                width: 100%;
-                max-width: none;
-            }
-        }
-    </style>
+
+    <title>Our Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-    <nav class="navbar" id="navv">
-        <nav>
-            <div >
-                <div>
-    
-                    <div class="logoContainer">
-                        <img src="logo.png" alt="Logo" class="logo">
-                        <span class="brand-name" id="title">Local Farmer</span>
+<body class="bg-light pb-5">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary py-3">
+                <div class="container-fluid">
+                    
+                    <div class="d-flex align-items-center">
+                        <img src="logo.png" alt="Logo" class="me-3" style="height: 50px;">
+                        <span class="navbar-brand mb-0 h1 fs-4">Local Farmer</span>
+                    </div>
+                      <div class="d-flex">
+                         <button class="btn btn-outline-light position-relative" 
+                                      data-bs-toggle="modal" 
+                                      data-bs-target="#cartModal">
+                        <i class="bi bi-cart"></i>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            2
+                     <span class="visually-hidden">items in cart</span>
+                      </span>
+                     </button>
+                     </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link fs-5 px-3" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active fs-5 px-3" href="aboutUs.html">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link fs-5 px-3" href="registration.html">Registration</a></li>
+                            <li class="nav-item"><a class="nav-link fs-5 px-3" href="products.html">Products</a></li>
+                            <li class="nav-item"><a class="nav-link fs-5 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
+                            <li class="nav-item"><a class="nav-link fs-5 px-3" href="blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link fs-5 px-3" href="dashboard.html">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link fs-5 px-3" href="contact.html">Contact Us</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div>
-                    <ul >
-                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-                        <li><a href="contact.html" style="color: rgb(255, 248, 248);">contact Us</a></li>
-                        <li><a href="registration.html" style="color: rgb(255, 248, 248);">Registration</a></li>
-                        <li><a href="farmerProfile.html" style="color: rgb(255, 248, 248);">Farmer Profiles</a></li>
-                        <li><a href="blog.html" style="color: rgb(255, 248, 248);">Blog</a></li>
-                        <li><a href="products.html" style="color: rgb(255, 248, 248);">Products</a></li>
-                        <li><a href="dashboard.html" style="color: rgb(255, 248, 248);">Dashboard</a></li> 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    
-      </nav>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/> 
-    <header>
-        <div class="container">
-            <h1>Our Farm Products</h1>
-            <p>Fresh from our fields to your table seasonal, organic produce grown with care</p>
+            </nav>
+    <header class="bg-secondary bg-opacity-10 py-5 mt-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Our Farm Products</h1>
+            <p class="lead">Fresh from our fields to your table seasonal, organic produce grown with care</p>
         </div>
     </header>
 
-    
-    <div class="container">
-        <div class="page-header">
-            <p><strong>organic produce grown with care</strong></p>
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <p class="fw-bold fs-5">Organic produce grown with care</p>
         </div>
         
-        <div class="seasonal-banner">
-            <p>🌱 <strong>In Season Now:</strong> Tomatoes, Cucumbers, Eggplants, Apricots and Pomegranates!</p>
+        <div class="alert alert-warning text-center mb-4">
+            <span class="fw-bold">🌱 In Season Now:</span> Tomatoes, Cucumbers, Eggplants, Apricots and Pomegranates!
         </div>
         
-        <div class="filter-section">
-            <div class="category-filter">
-                <button class="category-btn active">All Products</button>
-                <button class="category-btn">Fruit & Vegetables</button>
-                <button class="category-btn">Dairy & Poultry</button>
-                <button class="category-btn">Handmade & Organic products</button>
+        <form class="needs-validation" novalidate>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                <div class="d-flex flex-wrap gap-2">
+                    <input type="radio" class="btn-check" name="category" id="all-products" autocomplete="off" checked required>
+                    <label class="btn btn-outline-success" for="all-products">All Products</label>
+
+                    <input type="radio" class="btn-check" name="category" id="fruits-veg" autocomplete="off">
+                    <label class="btn btn-outline-success" for="fruits-veg">Fruit & Vegetables</label>
+
+                    <input type="radio" class="btn-check" name="category" id="dairy" autocomplete="off">
+                    <label class="btn btn-outline-success" for="dairy">Dairy & Poultry</label>
+
+                    <input type="radio" class="btn-check" name="category" id="handmade" autocomplete="off">
+                    <label class="btn btn-outline-success" for="handmade">Handmade & Organic</label>
+                </div>
+                
+                <div class="position-relative" style="max-width: 250px;">
+                    <input type="text" class="form-control" placeholder="Search products..." required>
+                    <div class="invalid-tooltip">
+                        Please enter a search term
+                    </div>
+                </div>
             </div>
-            
-            <input type="text" class="search-box" value="Search products...">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+                <button class="btn btn-success me-md-2" type="submit">Apply Filters</button>
+            </div>
+        </form>
+     
+        <div class="container mt-5 pt-4">
+            <!-- Product Grid -->
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                <!-- Product 1 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://via.placeholder.com/300x200?text=Tomatoes" class="card-img-top" alt="Tomatoes">
+                        <div class="card-body">
+                            <h5 class="card-title">Organic Tomatoes</h5>
+                            <p class="card-text">Fresh from our farm</p>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productModal" 
+                                    data-bs-title="Organic Tomatoes" 
+                                    data-bs-description="Plump, sun-ripened tomatoes bursting with flavor" 
+                                    data-bs-price="1.5/lb Rials">
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://via.placeholder.com/300x200?text=Carrots" class="card-img-top" alt="Carrots">
+                        <div class="card-body">
+                            <h5 class="card-title">Fresh Carrots</h5>
+                            <p class="card-text">Sweet and crunchy</p>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productModal" 
+                                    data-bs-title="Fresh Carrots" 
+                                    data-bs-description="Naturally sweet and packed with nutrients" 
+                                    data-bs-price="1.09/lb Rials">
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://via.placeholder.com/300x200?text=Eggs" class="card-img-top" alt="Eggs">
+                        <div class="card-body">
+                            <h5 class="card-title">Farm Eggs</h5>
+                            <p class="card-text">Free-range chickens</p>
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productModal" 
+                                    data-bs-title="Farm Eggs" 
+                                    data-bs-description="From our free-range chickens" 
+                                    data-bs-price="2.03/dozen Rials">
+                                Quick View
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </br>
+        <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="productModalTitle">Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" class="img-fluid mb-3" id="productModalImage" alt="">
+                        <p id="productModalDescription"></p>
+                        <p class="fw-bold" id="productModalPrice"></p>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Qty</span>
+                            <input type="number" class="form-control" value="1" min="1">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Your Shopping Cart</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Organic Tomatoes (2lb)</span>
+                                <span>3.00 Rials</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Farm Eggs (1 dozen)</span>
+                                <span>2.03 Rials</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between fw-bold">
+                                <span>Total</span>
+                                <span>5.03 Rials</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-success">Checkout</button>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <div class="products-grid">
+        <script>
+            var productModal = document.getElementById('productModal');
+            productModal.addEventListener('show.bs.modal', function(event) {
+                var button = event.relatedTarget;
+                document.getElementById('productModalTitle').textContent = button.getAttribute('data-bs-title');
+                document.getElementById('productModalDescription').textContent = button.getAttribute('data-bs-description');
+                document.getElementById('productModalPrice').textContent = button.getAttribute('data-bs-price');
+                document.getElementById('productModalImage').src = button.parentElement.parentElement.querySelector('img').src;
+            });
+        </script>   
+        <!-- Products Grid -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
             <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://yaraurl.com/j0r1');"></div>
-                <div class="product-info">
-                    <div class="product-category">Fruits</div>
-                    <h3 class="product-title">Organic Tomatoes</h3>
-                    <p class="product-description">Plump, sun-ripened tomatoes bursting with flavor. Available March through May.</p>
-                    <div class="product-footer">
-                        <span class="product-price">1.5/lb Rials</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://yaraurl.com/j0r1" class="card-img-top" alt="Organic Tomatoes" >
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Fruits</span>
+                        <h5 class="card-title">Organic Tomatoes</h5>
+                        <p class="card-text text-muted">Plump, sun-ripened tomatoes bursting with flavor. Available March through May.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">1.5/lb Rials</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
             
             <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="product-info">
-                    <div class="product-category">Vegetables</div>
-                    <h3 class="product-title">Organic Carrots</h3>
-                    <p class="product-description">Variety of colors and flavors. Grown without synthetic pesticides.</p>
-                    <div class="product-footer">
-                        <span class="product-price">1.09/lb Rials</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://ucarecdn.com/459eb7be-115a-4d85-b1d8-deaabc94c643/-/format/auto/-/preview/3000x3000/-/quality/lighter/" class="card-img-top" alt="Organic Carrots">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Vegetables</span>
+                        <h5 class="card-title">Organic Carrots</h5>
+                        <p class="card-text text-muted">Variety of colors and flavors. Grown without synthetic pesticides.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">1.09/lb Rials</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
             
             <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://cdn.sanity.io/images/7mpmplf0/production/8e750dc706219712a1bf0ed86f5eeb366cdb5523-1280x800.jpg');"></div>
-                <div class="product-info">
-                    <div class="product-category">Eggs & Dairy</div>
-                    <h3 class="product-title">Farm Fresh Eggs</h3>
-                    <p class="product-description">Free-range eggs from our happy hens. Available year-round.</p>
-                    <div class="product-footer">
-                        <span class="product-price">2.03/dozen Rials</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://cdn.sanity.io/images/7mpmplf0/production/8e750dc706219712a1bf0ed86f5eeb366cdb5523-1280x800.jpg" class="card-img-top" alt="Farm Fresh Eggs" >
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Eggs & Dairy</span>
+                        <h5 class="card-title">Farm Fresh Eggs</h5>
+                        <p class="card-text text-muted">Free-range eggs from our happy hens. Available year-round.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">2.03/dozen Rials</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
             
             <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="product-info">
-                    <div class="product-category">Vegetables</div>
-                    <h3 class="product-title">Potato</h3>
-                    <p class="product-description">Earthy, hearty potatoes freshly harvested for rich flavor and texture. Harvested weekly.</p>
-                    <div class="product-footer">
-                        <span class="product-price">$3.50/bag</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Potato">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Vegetables</span>
+                        <h5 class="card-title">Potato</h5>
+                        <p class="card-text text-muted">Earthy, hearty potatoes freshly harvested for rich flavor and texture. Harvested weekly.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">$3.50/bag</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
             
             <!-- Product 5 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://daenskitchen.com/wp-content/uploads/2025/03/Strawberry-Jam-Featured-1200-500x500.jpg');"></div>
-                <div class="product-info">
-                    <div class="product-category">Handmade & Organic products</div>
-                    <h3 class="product-title">Strawberry Jam</h3>
-                    <p class="product-description">Made with our organic strawberries. No artificial ingredients.</p>
-                    <div class="product-footer">
-                        <span class="product-price">4.5/jar Rials</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://daenskitchen.com/wp-content/uploads/2025/03/Strawberry-Jam-Featured-1200-500x500.jpg" class="card-img-top" alt="Strawberry Jam">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Handmade & Organic products</span>
+                        <h5 class="card-title">Strawberry Jam</h5>
+                        <p class="card-text text-muted">Made with our organic strawberries. No artificial ingredients.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">4.5/jar Rials</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
             
             <!-- Product 6 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://healthyfamilyproject.com/wp-content/uploads/2020/05/Pomegranate-background.jpg');"></div>
-                <div class="product-info">
-                    <div class="product-category">Fruits</div>
-                    <h3 class="product-title">Pomegranates</h3>
-                    <p class="product-description">Ruby-red pomegranates filled with sweet-tart jewels. Available August through October.</p>
-                    <div class="product-footer">
-                        <span class="product-price">2.5/bunch rial</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://healthyfamilyproject.com/wp-content/uploads/2020/05/Pomegranate-background.jpg" class="card-img-top" alt="Pomegranates" >
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Fruits</span>
+                        <h5 class="card-title">Pomegranates</h5>
+                        <p class="card-text text-muted">Ruby-red pomegranates filled with sweet-tart jewels. Available August through October.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">2.5/bunch rial</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
             
             <!-- Product 7 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://cdn.alweb.com/thumbs/daleelalnabatat/article/fit710x532/%D8%AA%D9%82%D9%84%D9%8A%D9%85-%D8%B4%D8%AC%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%88%D8%AA-%D9%83%D9%84-%D9%85%D8%A7-%D9%8A%D9%87%D9%85%D9%83.jpg');"></div>
-                <div class="product-info">
-                    <div class="product-category">Fruits</div>
-                    <h3 class="product-title">Berries</h3>
-                    <p class="product-description">Antioxidant-rich berries perfect for baking or snacking.</p>
-                    <div class="product-footer">
-                        <span class="product-price">1.99/pint</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://cdn.alweb.com/thumbs/daleelalnabatat/article/fit710x532/%D8%AA%D9%82%D9%84%D9%8A%D9%85-%D8%B4%D8%AC%D8%B1%D8%A9-%D8%A7%D9%84%D8%AA%D9%88%D8%AA-%D9%83%D9%84-%D9%85%D8%A7-%D9%8A%D9%87%D9%85%D9%83.jpg" class="card-img-top" alt="Berries" >
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Fruits</span>
+                        <h5 class="card-title">Berries</h5>
+                        <p class="card-text text-muted">Antioxidant-rich berries perfect for baking or snacking.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">1.99/pint</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
             
             <!-- Product 8 -->
-            <div class="product-card">
-                <div class="product-image" style="background-image: url('https://alrustaq.net/online-shopping/wp-content/uploads/2020/04/%D8%AE%D9%8A%D8%A7%D8%B1-1.png');"></div>
-                <div class="product-info">
-                    <div class="product-category">Vegetables</div>
-                    <h3 class="product-title">Cucumber</h3>
-                    <p class="product-description">Cool, crisp cucumbers perfect for refreshing snacks and salads. Available March through May.</p>
-                    <div class="product-footer">
-                        <span class="product-price">2.99/bunch Rials</span>
-                        <button class="add-to-cart">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://alrustaq.net/online-shopping/wp-content/uploads/2020/04/%D8%AE%D9%8A%D8%A7%D8%B1-1.png" class="card-img-top" alt="Cucumber" >
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Vegetables</span>
+                        <h5 class="card-title">Cucumber</h5>
+                        <p class="card-text text-muted">Cool, crisp cucumbers perfect for refreshing snacks and salads. Available March through May.</p>
+                    </div>
+                    <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-success">2.99/bunch Rials</span>
+                        <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="newsletter">
-            <h2>Join Our Farm Newsletter</h2>
-            <p>Get updates on seasonal availability, farm events, and special offers.</p>
-            <form class="newsletter-form">
-                <input type="email" value="Your email address">
-                <button type="submit">Subscribe</button>
-            </form>
+        <div class="card bg-light border-0 shadow-sm mb-5">
+            <div class="card-body text-center py-4">
+                <h2 class="text-success mb-3">Join Our Farm Newsletter</h2>
+                <p class="mb-4">Get updates on seasonal availability, farm events, and special offers.</p>
+                
+                <form class="needs-validation" novalidate>
+                    <div class="row g-2 justify-content-center">
+                        <div class="col-md-8 col-lg-6 position-relative">
+                            <div class="input-group has-validation">
+                                <input type="email" class="form-control" placeholder="Your email address" required>
+                                <button class="btn btn-success" type="submit">Subscribe</button>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email address
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <footer >
-        <p>
-            <a href="https://github.com/reemHaitham/Local-Farmers-Website.git"><img src="gitIcon.png" alt="github icon"
-                    style="height: 40px; width: 40px;"></a>
-            <a href="malito:localfarmerweb@gmail.com"><img src="emailIcon.png" alt="email icon"
-                style="height: 40px; width: 40px;"></a>
-  </p>
-    </footer>
+    <footer class="fixed-bottom bg-secondary py-2">
+        <div class="text-center">
+          <a href="https://github.com/reemHaitham/Local-Farmers-Website.git" >
+            <img src="gitIcon.png" alt="github icon"
+            class="me-2" style="height: 40px;">
+          </a>
+          <a href="mailto:localfarmerweb@gmail.com" >
+            <img src="emailIcon.png" alt="github icon"
+            class="me-2" style="height: 40px;">
+          </a>
+        </div>
+      </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Form Validation Script -->
+        <script>
+            (function () {
+                'use strict'
+                
+                const forms = document.querySelectorAll('.needs-validation')
+                
+                // Loop over them and prevent submission
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+                
+                // Real-time validation for search input
+                const searchInput = document.querySelector('input[type="text"]')
+                searchInput.addEventListener('input', () => {
+                    if (searchInput.value.trim() !== '') {
+                        searchInput.classList.remove('is-invalid')
+                    }
+                })
+            })()
+            </script>
 </body>
 </html>
