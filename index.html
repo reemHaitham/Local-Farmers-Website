@@ -3,185 +3,219 @@
 <head>
     <title>Home Page - Local Farmers</title>
     
-    <link rel="stylesheet" href="MyStylesheet.css">
-    <style type="text/css">
-
-.card {
-  background-color: white;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  margin: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: rgb(36, 64, 30);
-  font-weight: bold;
-  width: 260px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.card:hover {
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 4px 8px rgba(241, 221, 4, 0.347);
-}
-
-.card-image {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.card-text h5 {
-  margin-top: 10px;
-  font-size: 1.1em;
-}
-
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-
-
-        .main-section {
-         background-image: url(homeBg.png);
-         background-size: cover;
-         background-position: center;
-         height: 450px;
-         color: rgb(33, 61, 32);
-         display: flex;
-         justify-content: left;
-         text-align: center;
-         }
-         
-        .main-content h2 {
-        font-size: 3.5em;
-        font-weight: bold;
-        font-family:Georgia, 'Times New Roman', Times, serif;
-        }
-
-        .main-content p {
-        font-size: 1.25em;
-        color: #7e5e38; 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
+<body class="bg-light pb-5">
 
-<body>
-    <nav class="navbar" id="navv">
-        <nav>
-            <div >
-                <div>
-    
-                    <div class="logoContainer">
-                        <img src="logo.png" alt="Logo" class="logo">
-                        <span class="brand-name" id="title">Local Farmer</span>
-                    </div>
-                </div>
-                <div>
-                    <ul >
-                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-                        <li><a href="registration.html" style="color: rgb(255, 248, 248);">Registration</a></li>
-                        <li><a href="products.html" style="color: rgb(255, 248, 248);">Products</a></li>
-                        <li><a href="farmerProfile.html" style="color: rgb(255, 248, 248);">Farmer Profiles</a></li>
-                        <li><a href="blog.html" style="color: rgb(255, 248, 248);">Blog</a></li>
-                        <li><a href="dashboard.html" style="color: rgb(255, 248, 248);">Dashboard</a></li> 
-                        <li><a href="contact.html" style="color: rgb(255, 248, 248);">contact Us</a></li>
-                    </ul>
-                </div>
+    <!--header-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary py-3">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" alt="Logo" class="me-3 img-fluid" width="50">
+                <span class="navbar-brand mb-0 h1 fs-4">Local Farmer</span>
             </div>
-        </nav>
-    
-      </nav>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active fs-6 px-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="registration.html">Registration</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="questionnaire.html">Questionnaire</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.html">Calculate</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <br/>
     <br/>
     <br/>
-    <br/>
-    <br/> 
-    
+      
 
-<!-- Main section  -->
-<div class="main-section">
-    <div class="main-content">
-        <h2>Welcome to</h2>
-        <h2>Local Farmers Website</h2>
-        <p>Cultivate with nature’s best practices</p>
+<!-- Main Section -->
+<section class="d-flex align-items-center" style="background: url('homeBg.png') center/cover no-repeat; height: 600px;">
+    <div class="container">
+      <div class="text-start">
+        <h2 class="display-3 fw-bold text-success">Welcome to</h2>
+        <h2 class="display-2 fw-bold text-success">Local Farmers Website</h2>
+        <p class="fs-4 text-warning">Cultivate with nature's best practice</p>
+      </div>
     </div>
-</div>
+  </section>
 
 <!-- Content Section -->
-<section  style="background-color: #f1f2f0;margin: 25px;" >
-    <div class="container" style="background-color: #f1f2f0;">
-        <div >
-            
-            <div class="card">
-                <a href="registration.html">
-                  <img src="registration.png" class="card-image" alt="Farmer registration">
-                </a>
-                <div class="card-text">
-                  <h5>Farmer Registration</h5>
-                </div>
+<section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center g-4">
+        
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow text-center">
+            <a href="registration.html" class="text-decoration-none">
+              <img src="registration.png" class="card-img-top" alt="Farmer Registration">
+              <div class="card-body">
+                <h5 class="card-title text-success fw-bold">Farmer Registration</h5>
               </div>
-              
-          
-            
-                <div class="card">
-                    <a href="products.html">
-                        <img src="product.png" class="card-image" alt="Farmer produce">
-                    </a>
-                    <div class="card-text">
-                        <h5 >Farmer Produce</h5>
-                    </div>
-                </div>
-            
-                <br/>
-                <div class="card">
-                    <a href="farmerProfile.html">
-                        <img src="profile.png" class="card-image" alt="Farmers Profile">
-                    </a>
-                    <div class="card-text">
-                        <h5>Farmers Profile</h5>
-                    </div>
-                </div>
-            
-            
-                <div class="card">
-                    <a href="blog.html">
-                        <img src="blog.png" class="card-image" alt="Agricultural Blog">
-                    </a>
-                    <div class="card-text">
-                        <h5 >Agricultural Blog</h5>
-                    </div>
-                </div>
-            
+            </a>
+          </div>
         </div>
+  
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow text-center">
+            <a href="products.html" class="text-decoration-none">
+              <img src="product.png" class="card-img-top" alt="Farmer Produce">
+              <div class="card-body">
+                <h5 class="card-title text-success fw-bold">Farmer Produce</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow text-center">
+            <a href="farmerProfile.html" class="text-decoration-none">
+              <img src="profile.png" class="card-img-top" alt="Farmers Profile">
+              <div class="card-body">
+                <h5 class="card-title text-success fw-bold">Farmers Profile</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+  
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow text-center">
+            <a href="blog.html" class="text-decoration-none">
+              <img src="blog.png" class="card-img-top" alt="Agricultural Blog">
+              <div class="card-body">
+                <h5 class="card-title text-success fw-bold">Agricultural Blog</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+  
+      </div>
     </div>
-</section>
-<br/>
+  </section>
+
+
+<!-- Gallery Section -->
+<div id="galleryCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="gal1.jpg" class="d-block mx-auto img-fluid w-50" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="gal2.jpg" class="d-block mx-auto img-fluid w-50" alt="Image 2">
+      </div>
+      <div class="carousel-item">
+        <img src="gal3.jpg" class="d-block mx-auto img-fluid w-50" alt="Image 3">
+      </div>
+    </div>
+  </div>
+  
   <br/>
   <br/>
   <br/>
-  <br/> 
-<div >
-    <footer >
-      <p>
-          <a href="https://github.com/reemHaitham/Local-Farmers-Website.git"><img src="gitIcon.png" alt="github icon"
-                  style="height: 40px; width: 40px;"></a>
-          <a href="malito:localfarmerweb@gmail.com"><img src="emailIcon.png" alt="email icon"
-              style="height: 40px; width: 40px;"></a>
-</p>
+  <br/>
+
+<!-- Footer -->
+<footer class="fixed-bottom bg-secondary py-3">
+    <div class="text-white text-center overflow-hidden position-relative py-4">
+  
+      <!-- Social Icons -->
+    <div class="position-absolute bottom-0 start-50 translate-middle-x">
+        <a href="https://github.com/reemHaitham/Local-Farmers-Website.git">
+          <img src="gitIcon.png" alt="GitHub icon" class="me-2" width="40" height="40">
+        </a>
+        <a href="mailto:localfarmerweb@gmail.com">
+          <img src="emailIcon.png" alt="Email icon" width="40" height="40">
+        </a>
+      </div>
+
+      <!-- Moving Text -->
+    <div class="position-absolute top-0 start-0 w-100 overflow-hidden">
+        <div id="scrolling-text" class="fw-bold d-inline-block">
+          Welcome to the Local Farmers Website! Today is 
+          <span id="current_date"></span>, and the time is 
+          <span id="current_time"></span>.
+        </div>
+      </div>
+  
+    </div>
   </footer>
 
-</div>
+   <!-- Moving Text -->
+   <div class="position-absolute top-0 start-0 w-100 overflow-hidden">
+    <div id="scrolling-text" class="fw-bold d-inline-block">
+      Welcome to the Local Farmers Website! Today is 
+      <span id="current_date"></span>, and the time is 
+      <span id="current_time"></span>.
+    </div>
+  </div>
+  
 
+  <script>
+             // <-- JavaScript for updating Date and Time -->
+           
+    //html element where the current date will be displayed
+    const currentDateElement = document.getElementById('current_date');
+    //html element where the current time will be displayed
+    const currentTimeElement = document.getElementById('current_time');
+  
+    function updateDateTime() {
+      //create new Date object to get current date & time  
+      const now = new Date();
+      //format to make it string as (MM/DD/YYYY)
+      currentDateElement.textContent = now.toLocaleDateString();
+      //format to make it string as (HH:MM:SS AM/PM)
+      currentTimeElement.textContent = now.toLocaleTimeString();
+    }
+    
+    // Initial update
+    updateDateTime();
+    
+    // Update every second
+    setInterval(updateDateTime, 1000);
+  
+    // Moving text (right to left)
+    const scrollingTextElement = document.getElementById('scrolling-text');
+    let position = window.innerWidth;
+
+    function animateText() {
+      position -= 1; // Move 1px left each frame
+      
+      // Reset position when text has moved completely left side 
+      if (position < -scrollingTextElement.offsetWidth) {
+        position = window.innerWidth;
+      }
+      
+      scrollingTextElement.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(animateText);
+    }
+    
+    // Start the animation
+    animateText();
+    
+
+          //<-- JavaScript for rotating Gallery Images -->
+
+    // Initialize Bootstrap carousel with proper interval 
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = new bootstrap.Carousel(document.getElementById('galleryCarousel'), {
+        interval: 3000, // every 3 seconds
+        ride: 'carousel' // Automatically start cycling the carousel when page loads
+      });
+    });
+  </script>
+  
 </body>
 </html>
