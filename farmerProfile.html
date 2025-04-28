@@ -114,7 +114,7 @@
             this.method = method;
         }
 
-        function Farm(farmName, location, products, method) {
+        function Profile(farmName, location, products, method) {
             this.farmName = farmName;
             this.location = location;
             this.products = products;
@@ -128,8 +128,8 @@
         ];
 
         const farms = [
-            new Farm("Green Valley", "Salalah", "Organic Vegetables", "Eco-friendly"),
-            new Farm("Sunny Acres", "Sur", "Free-range Eggs", "Pasture-raised")
+            new Profile("Green Valley", "Salalah", "Organic Vegetables", "Eco-friendly"),
+            new Profile("Sunny Acres", "Sur", "Free-range Eggs", "Pasture-raised")
         ];
 
         // Part d) Function to display farmers information
@@ -216,7 +216,7 @@
             
             // Add to farms array if farm doesn't exist
             if (!farms.some(farm => farm.farmName === farmName)) {
-                farms.push(new Farm(farmName, location, products, method));
+                farms.push(new Profile(farmName, location, products, method));
             }
             
             // Reset form
