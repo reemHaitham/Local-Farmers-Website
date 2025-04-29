@@ -1,0 +1,286 @@
+<html>
+<head>
+    <title>Bill Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary py-3">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" alt="Logo" class="me-3 img-fluid" width="50">
+                <span class="navbar-brand mb-0 h1 fs-4">Local Farmer</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="registration.html">Registration</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="questionnaire.html">Questionnaire</a></li>
+                    <li class="nav-item"><a class="nav-link active fs-6 px-3" href="calculate.html">Calculate</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br/>
+    <br/>
+    <br/>
+    <section class="d-flex align-items-center" style="background: url('BGall.png') center/cover no-repeat; height: 400px;">
+        <div class="container">
+            <h2 class="display-3 text-center text-success fw-bold ">Calculater</h2>
+        </div>
+      </section>
+    
+      <br/>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <!-- Header -->
+                    <div class="card-header bg-success text-white">
+                        <h1 class="card-title text-center mb-0">Farmers Market Bill Calculator</h1>
+                    </div>
+                    
+                    <div class="card-body">
+                        <!-- Introduction -->
+                        <div class="alert alert-info mb-4">
+                            <h4 class="alert-heading">About This Calculator</h4>
+                            <p class="mb-0">
+                                Calculate your total bill with potential discounts when purchasing fresh produce from our local farmers. 
+                                We offer special discounts for seniors (60+), first-time customers, and bulk purchases.
+                            </p>
+                        </div>
+
+                        <!-- Calculator Form -->
+                        <form id="billCalculator" class="needs-validation" novalidate>
+                            <!-- Customer Information -->
+                            <div class="mb-4 p-3 border rounded">
+                                <h3 class="mb-3">Customer Information</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="customerName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="customerName" required>
+                                        <div class="invalid-feedback">
+                                            Please enter your name.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="customerAge" class="form-label">Age</label>
+                                        <input type="number" class="form-control" id="customerAge" min="0" required>
+                                        <div class="invalid-feedback">
+                                            Please enter a valid age.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="firstTimeCustomer">
+                                            <label class="form-check-label" for="firstTimeCustomer">
+                                                First time customer? (10% discount)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product Selection -->
+                            <div class="mb-4 p-3 border rounded">
+                                <h3 class="mb-3">Select Your Items</h3>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Item</th>
+                                                <th>Price (per kg)</th>
+                                                <th>Quantity (kg)</th>
+                                                <th>Subtotal</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Organic Apples</td>
+                                                <td>2.50-OMR</td>
+                                                <td>
+                                                    <input type="number" class="form-control apple-qty" min="0" step="0.1" value="0">
+                                                </td>
+                                                <td class="apple-subtotal">0.00-OMR</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fresh Tomatoes</td>
+                                                <td>3.00-OMR</td>
+                                                <td>
+                                                    <input type="number" class="form-control tomato-qty" min="0" step="0.1" value="0">
+                                                </td>
+                                                <td class="tomato-subtotal">0.00-OMR</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Local Honey</td>
+                                                <td>8.00-OMR</td>
+                                                <td>
+                                                    <input type="number" class="form-control honey-qty" min="0" step="0.1" value="0">
+                                                </td>
+                                                <td class="honey-subtotal">0.00-OMR</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Farm Eggs (dozen)</td>
+                                                <td>4.50-OMR</td>
+                                                <td>
+                                                    <input type="number" class="form-control eggs-qty" min="0" step="1" value="0">
+                                                </td>
+                                                <td class="eggs-subtotal">0.00-OMR</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Calculate Button -->
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-success btn-lg" onclick="calculateBill()">
+                                    Calculate Total Bill
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Results Section -->
+                        <div id="results" class="mt-4 p-3 border rounded" style="display: none;">
+                            <h3 class="mb-3">Your Bill Summary</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>Customer:</strong> <span id="displayName"></span></p>
+                                    <p><strong>Subtotal:</strong> <span id="subtotal"></span></p>
+                                    <p><strong>Discounts Applied:</strong></p>
+                                    <ul id="discountsList" class="list-unstyled ms-3"></ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Total Amount Due</h4>
+                                            <p class="display-5 text-success" id="totalAmount">0.00-OMR</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="fixed-bottom bg-secondary py-2">
+        <div class="text-center">
+          <a href="https://github.com/reemHaitham/Local-Farmers-Website.git" >
+            <img src="gitIcon.png" alt="github icon"
+            class="me-2" style="height: 40px;">
+          </a>
+          <a href="mailto:localfarmerweb@gmail.com" >
+            <img src="emailIcon.png" alt="github icon"
+            class="me-2" style="height: 40px;">
+          </a>
+        </div>
+      </footer>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript for Calculator -->
+    <script>
+        // Function to calculate the total bill
+        function calculateBill() {
+            // Get customer information
+            const customerName = document.getElementById('customerName').value;
+            const customerAge = parseInt(document.getElementById('customerAge').value);
+            const isFirstTimeCustomer = document.getElementById('firstTimeCustomer').checked;
+            
+            // Validate form inputs
+            if (!customerName || isNaN(customerAge)) {
+                alert('Please fill in all required fields with valid information.');
+                return;
+            }
+            
+            // Get quantities for each product
+            const appleQty = parseFloat(document.querySelector('.apple-qty').value) || 0;
+            const tomatoQty = parseFloat(document.querySelector('.tomato-qty').value) || 0;
+            const honeyQty = parseFloat(document.querySelector('.honey-qty').value) || 0;
+            const eggsQty = parseInt(document.querySelector('.eggs-qty').value) || 0;
+            
+            // Calculate subtotals for each product
+            const applePrice = 2.50;
+            const tomatoPrice = 3.00;
+            const honeyPrice = 8.00;
+            const eggsPrice = 4.50;
+            
+            const appleSubtotal = appleQty * applePrice;
+            const tomatoSubtotal = tomatoQty * tomatoPrice;
+            const honeySubtotal = honeyQty * honeyPrice;
+            const eggsSubtotal = eggsQty * eggsPrice;
+            
+            // Update subtotal displays
+            document.querySelector('.apple-subtotal').textContent = `-OMR${appleSubtotal.toFixed(2)}`;
+            document.querySelector('.tomato-subtotal').textContent = `-OMR${tomatoSubtotal.toFixed(2)}`;
+            document.querySelector('.honey-subtotal').textContent = `-OMR${honeySubtotal.toFixed(2)}`;
+            document.querySelector('.eggs-subtotal').textContent = `-OMR${eggsSubtotal.toFixed(2)}`;
+            
+            // Calculate total before discounts
+            let subtotal = appleSubtotal + tomatoSubtotal + honeySubtotal + eggsSubtotal;
+            
+            // Apply discounts based on conditions
+            let discounts = [];
+            let totalDiscount = 0;
+            
+            // Senior discount (10% if age 60 or older)
+            if (customerAge >= 60) {
+                const seniorDiscount = subtotal * 0.10;
+                discounts.push(`Senior Discount (10%): OMR${seniorDiscount.toFixed(2)}`);
+                totalDiscount += seniorDiscount;
+            }
+            
+            // First-time customer discount (10%)
+            if (isFirstTimeCustomer) {
+                const firstTimeDiscount = subtotal * 0.10;
+                discounts.push(`First-Time Customer (10%): OMR${firstTimeDiscount.toFixed(2)}`);
+                totalDiscount += firstTimeDiscount;
+            }
+            
+            // Bulk discount (5% if total quantity > 10 lbs)
+            const totalQuantity = appleQty + tomatoQty + honeyQty;
+            if (totalQuantity > 10) {
+                const bulkDiscount = subtotal * 0.05;
+                discounts.push(`Bulk Purchase (5%): OMR${bulkDiscount.toFixed(2)}`);
+                totalDiscount += bulkDiscount;
+            }
+            
+            // Calculate final total
+            const total = subtotal - totalDiscount;
+            
+            // Display results
+            document.getElementById('displayName').textContent = customerName;
+            document.getElementById('subtotal').textContent = `OMR${subtotal.toFixed(2)}`;
+            
+            const discountsList = document.getElementById('discountsList');
+            discountsList.innerHTML = '';
+            
+            if (discounts.length > 0) {
+                discounts.forEach(discount => {
+                    const li = document.createElement('li');
+                    li.textContent = discount;
+                    discountsList.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('li');
+                li.textContent = 'No discounts applied';
+                discountsList.appendChild(li);
+            }
+            
+            document.getElementById('totalAmount').textContent = `OMR${total.toFixed(2)}`;
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
