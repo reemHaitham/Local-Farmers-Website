@@ -41,7 +41,7 @@
     
     <br/>
     <br/>
-    <div class="container mt-3">
+   
     <h1 class="text-center mb-3 text-warning fs-4">Farmer Profile Information System</h1>
         
     <div class="container mt-3">
@@ -236,164 +236,198 @@
             return row;
         }
 
-        // Part e) Form handling
-        
-    // Part e) Form handling - Search Function (updated)
-    document.getElementById('searchFarmerForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const term = document.getElementById('searchTerm').value.toLowerCase();
-        if (!term) {
-            alert('Please enter a search term');
-            return;
-        }
-        
-        // Clear previous search results
-        document.getElementById('searchResults').innerHTML = '';
-        
-        // Hide the main farmers container during search
-        document.getElementById('farmersContainer').classList.add('d-none');
-        
-        // Search in both arrays
-        const farmerResults = farmers.filter(farmer => 
-            farmer.name.toLowerCase().includes(term) ||
-            farmer.farmName.toLowerCase().includes(term) ||
-            farmer.location.toLowerCase().includes(term) ||
-            farmer.products.toLowerCase().includes(term) ||
-            farmer.method.toLowerCase().includes(term)
-        );
-        
-        const farmResults = farms.filter(farm => 
-            farm.farmName.toLowerCase().includes(term) ||
-            farm.location.toLowerCase().includes(term) ||
-            farm.products.toLowerCase().includes(term) ||
-            farm.method.toLowerCase().includes(term)
-        );
-        
-        const resultsDiv = document.getElementById('searchResults');
-        resultsDiv.innerHTML = '';
-        
-        if (farmerResults.length === 0 && farmResults.length === 0) {
-            const alert = document.createElement('div');
-            alert.className = 'alert alert-warning py-2 px-3 mb-3';
-            alert.textContent = 'No results found for: ' + term;
-            resultsDiv.appendChild(alert);
-            return;
-        }
-        
-        // Create a container for all search results
-        const resultsContainer = document.createElement('div');
-        
-        // Display matching farmers
-        if (farmerResults.length > 0) {
-            const farmerHeader = document.createElement('h4');
-            farmerHeader.textContent = 'Matching Profiles (' + farmerResults.length + ')';
-            farmerHeader.className = 'text-success mb-3';
-            resultsContainer.appendChild(farmerHeader);
+        // Part e) Form handling - Add New Farmer
+        document.getElementById('addFarmerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            const farmerCardsContainer = document.createElement('div');
-            farmerCardsContainer.className = 'row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4';
+            // Get form values
+            const name = document.getElementById('farmerName').value;
+            const farmName = document.getElementById('farmName').value;
+            const location = document.getElementById('location').value;
+            const products = document.getElementById('products').value;
+            const method = document.getElementById('method').value;
             
-            farmerResults.forEach(farmer => {
-                const col = document.createElement('div');
-                col.className = 'col';
-                
-                const card = document.createElement('div');
-                card.className = 'card h-100';
-                
-                const img = document.createElement('img');
-                img.src = 'farmer.jpg';
-                img.alt = farmer.name;
-                img.className = 'card-img-top';
-                img.style.height = '200px';
-                img.style.objectFit = 'cover';
-                
-                const cardBody = document.createElement('div');
-                cardBody.className = 'card-body p-2';
-                
-                const title = document.createElement('h5');
-                title.className = 'card-title text-success';
-                title.textContent = farmer.name;
-                
-                const table = document.createElement('table');
-                table.className = 'table table-sm mb-0';
-                
-                const rows = [
-                    createTableRow('Farm:', farmer.farmName),
-                    createTableRow('Location:', farmer.location),
-                    createTableRow('Products:', farmer.products),
-                    createTableRow('Method:', farmer.method)
-                ];
-                
-                rows.forEach(row => table.appendChild(row));
-                
-                cardBody.appendChild(title);
-                cardBody.appendChild(table);
-                
-                card.appendChild(img);
-                card.appendChild(cardBody);
-                
-                col.appendChild(card);
-                farmerCardsContainer.appendChild(col);
-            });
+            // Validate inputs
+            if (!name || !farmName || !location || !products || !method) {
+                alert('Please fill in all fields');
+                return;
+            }
             
-            resultsContainer.appendChild(farmerCardsContainer);
-        }
+            // Create new farmer and profile
+            const newFarmer = new Farmer(name, farmName, location, products, method);
+            const newFarm = new Profile(farmName, location, products, method);
+            
+            // Add to collections
+            farmers.push(newFarmer);
+            farms.push(newFarm);
+            
+            // Update displays
+            displayFarmers();
+            displayProfiles();
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Farmer profile added successfully!');
+        });
         
-        // Display matching farms
-        if (farmResults.length > 0) {
-            const farmHeader = document.createElement('h4');
-            farmHeader.textContent = 'Matching Farms (' + farmResults.length + ')';
-            farmHeader.className = 'text-success mb-3 mt-4';
-            resultsContainer.appendChild(farmHeader);
+        // Part e) Form handling - Search Function
+        document.getElementById('searchFarmerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            const farmTable = document.createElement('table');
-            farmTable.className = 'table table-striped table-bordered';
+            const term = document.getElementById('searchTerm').value.toLowerCase();
+            if (!term) {
+                alert('Please enter a search term');
+                return;
+            }
             
-            const thead = document.createElement('thead');
-            thead.className = 'table-dark';
-            thead.innerHTML = `
-                <tr>
-                    <th>Farm Name</th>
-                    <th>Location</th>
-                    <th>Products</th>
-                    <th>Method</th>
-                </tr>
-            `;
+            // Clear previous search results
+            document.getElementById('searchResults').innerHTML = '';
             
-            const tbody = document.createElement('tbody');
-            farmResults.forEach(farm => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${farm.farmName}</td>
-                    <td>${farm.location}</td>
-                    <td>${farm.products}</td>
-                    <td>${farm.method}</td>
+            // Hide the main farmers container during search
+            document.getElementById('farmersContainer').classList.add('d-none');
+            
+            // Search in both arrays
+            const farmerResults = farmers.filter(farmer => 
+                farmer.name.toLowerCase().includes(term) ||
+                farmer.farmName.toLowerCase().includes(term) ||
+                farmer.location.toLowerCase().includes(term) ||
+                farmer.products.toLowerCase().includes(term) ||
+                farmer.method.toLowerCase().includes(term)
+            );
+            
+            const farmResults = farms.filter(farm => 
+                farm.farmName.toLowerCase().includes(term) ||
+                farm.location.toLowerCase().includes(term) ||
+                farm.products.toLowerCase().includes(term) ||
+                farm.method.toLowerCase().includes(term)
+            );
+            
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '';
+            
+            if (farmerResults.length === 0 && farmResults.length === 0) {
+                const alert = document.createElement('div');
+                alert.className = 'alert alert-warning py-2 px-3 mb-3';
+                alert.textContent = 'No results found for: ' + term;
+                resultsDiv.appendChild(alert);
+                return;
+            }
+            
+            // Create a container for all search results
+            const resultsContainer = document.createElement('div');
+            
+            // Display matching farmers
+            if (farmerResults.length > 0) {
+                const farmerHeader = document.createElement('h4');
+                farmerHeader.textContent = 'Matching Profiles (' + farmerResults.length + ')';
+                farmerHeader.className = 'text-success mb-3';
+                resultsContainer.appendChild(farmerHeader);
+                
+                const farmerCardsContainer = document.createElement('div');
+                farmerCardsContainer.className = 'row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 mb-4';
+                
+                farmerResults.forEach(farmer => {
+                    const col = document.createElement('div');
+                    col.className = 'col';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'card h-100';
+                    
+                    const img = document.createElement('img');
+                    img.src = 'farmer.jpg';
+                    img.alt = farmer.name;
+                    img.className = 'card-img-top';
+                    img.style.height = '200px';
+                    img.style.objectFit = 'cover';
+                    
+                    const cardBody = document.createElement('div');
+                    cardBody.className = 'card-body p-2';
+                    
+                    const title = document.createElement('h5');
+                    title.className = 'card-title text-success';
+                    title.textContent = farmer.name;
+                    
+                    const table = document.createElement('table');
+                    table.className = 'table table-sm mb-0';
+                    
+                    const rows = [
+                        createTableRow('Farm:', farmer.farmName),
+                        createTableRow('Location:', farmer.location),
+                        createTableRow('Products:', farmer.products),
+                        createTableRow('Method:', farmer.method)
+                    ];
+                    
+                    rows.forEach(row => table.appendChild(row));
+                    
+                    cardBody.appendChild(title);
+                    cardBody.appendChild(table);
+                    
+                    card.appendChild(img);
+                    card.appendChild(cardBody);
+                    
+                    col.appendChild(card);
+                    farmerCardsContainer.appendChild(col);
+                });
+                
+                resultsContainer.appendChild(farmerCardsContainer);
+            }
+            
+            // Display matching farms
+            if (farmResults.length > 0) {
+                const farmHeader = document.createElement('h4');
+                farmHeader.textContent = 'Matching Farms (' + farmResults.length + ')';
+                farmHeader.className = 'text-success mb-3 mt-4';
+                resultsContainer.appendChild(farmHeader);
+                
+                const farmTable = document.createElement('table');
+                farmTable.className = 'table table-striped table-bordered';
+                
+                const thead = document.createElement('thead');
+                thead.className = 'table-dark';
+                thead.innerHTML = `
+                    <tr>
+                        <th>Farm Name</th>
+                        <th>Location</th>
+                        <th>Products</th>
+                        <th>Method</th>
+                    </tr>
                 `;
-                tbody.appendChild(row);
-            });
+                
+                const tbody = document.createElement('tbody');
+                farmResults.forEach(farm => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${farm.farmName}</td>
+                        <td>${farm.location}</td>
+                        <td>${farm.products}</td>
+                        <td>${farm.method}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+                
+                farmTable.appendChild(thead);
+                farmTable.appendChild(tbody);
+                resultsContainer.appendChild(farmTable);
+            }
             
-            farmTable.appendChild(thead);
-            farmTable.appendChild(tbody);
-            resultsContainer.appendChild(farmTable);
-        }
-        
-        resultsDiv.appendChild(resultsContainer);
-    });
+            resultsDiv.appendChild(resultsContainer);
+        });
 
-    // Update reset function to properly show main container again
-    document.getElementById('resetSearch').addEventListener('click', function() {
-        document.getElementById('searchTerm').value = '';
-        document.getElementById('searchResults').innerHTML = '';
-        document.getElementById('farmersContainer').classList.remove('d-none');
-        displayFarmers();
-    });
+        // Update reset function to properly show main container again
+        document.getElementById('resetSearch').addEventListener('click', function() {
+            document.getElementById('searchTerm').value = '';
+            document.getElementById('searchResults').innerHTML = '';
+            document.getElementById('farmersContainer').classList.remove('d-none');
+            displayFarmers();
+        });
 
-    // Initialize the application
-    window.onload = function() {
-        displayFarmers();
-        displayProfiles(); // Initialize the hidden table
-    };
+        // Initialize the application
+        window.onload = function() {
+            displayFarmers();
+            displayProfiles(); // Initialize the hidden table
+        };
     </script>
     <div class="container mt-5 bg-secondary bg-opacity-25">
         <h2 class="text-center mb-4 text-success">Customer Reviews</h2>
