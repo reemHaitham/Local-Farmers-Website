@@ -1,4 +1,3 @@
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -95,21 +94,19 @@ INSERT INTO `orders` (`orders_id`, `date`, `numOfItems`, `total`, `Status`) VALU
 -- Indexes for table `profiles`
 --
 ALTER TABLE `profiles`
-  ADD PRIMARY KEY (`farmerName`),
-  ADD KEY `farmerName` (`farmerName`);
+  ADD PRIMARY KEY (`farmerName`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD UNIQUE KEY `product_type` (`product_type`);
+  ADD UNIQUE KEY `product_name` (`product_name`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD UNIQUE KEY `UNIQUE` (`orders_id`),
-  ADD UNIQUE KEY `orders_id` (`orders_id`);
+  ADD PRIMARY KEY (`orders_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
