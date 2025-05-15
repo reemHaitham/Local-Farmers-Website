@@ -41,8 +41,8 @@
     <br/>
       
 
-<!-- page title Section -->
-<section class="d-flex align-items-center" style="background: url('BGall.png') center/cover no-repeat; height: 400px;">
+<!-- title Section -->
+<section class="d-flex align-items-center" style="background: url('BGall.png') center/cover no-repeat; height: 400px;"> <!--we can use image background in bootstrap-->
     <div class="container">
         <h2 class="display-3 text-center text-success fw-bold ">Questionnaire</h2>
     </div>
@@ -59,20 +59,23 @@
     </div>
 
      <!-- Personal Info -->
-    <form id="feedbackForm" class="bg-white p-4 rounded shadow-sm">
+    <form id="feedbackForm" class="bg-white p-4 rounded shadow-sm" action="process_questionnaire.php" method="post">
           <div class="mb-3">
             <label for="fullName" class="form-label">Full Name</label>
             <input type="text" id="fullName" class="form-control" placeholder="Sara Ahmed" required>
+            <div class="text-danger" id="nameError"></div>
           </div>
 
           <div class="mb-3">
             <label for="userEmail" class="form-label">Email Address</label>
             <input type="email" id="userEmail" class="form-control" placeholder="example@domain.com" required>
+            <div class="text-danger" id="emailError"></div>
           </div>
 
           <div class="mb-3">
             <label for="location" class="form-label">City or Region</label>
             <input type="text" id="location" class="form-control" placeholder="City name" required>
+            <div class="text-danger" id="locationError"></div>
           </div>
 
         <!--Product Rating -->
@@ -86,6 +89,7 @@
           <option value="Average">Fair</option>
           <option value="Poor">Poor</option>
         </select>
+        <div class="text-danger" id="ratingError"></div>
       </div>
 
 
@@ -107,6 +111,7 @@
           <input class="form-check-input" type="checkbox" id="seeds" value="Seeds">
           <label class="form-check-label" for="seeds">Seeds 🫘</label>
         </div>
+        <div class="text-danger" id="productError"></div>
       </div>
 
       <div class="mb-3">
@@ -121,6 +126,7 @@
             <label class="form-check-label" for="deliveryNo">No</label>
           </div>
         </div>
+        <div class="text-danger" id="deliveryError"></div>
       </div>
 
       <!--Suggestions-->
@@ -128,6 +134,7 @@
         <div class="mb-3">
           <label for="suggestions" class="form-label">What can we improve?</label>
           <textarea id="suggestions" class="form-control" rows="4" placeholder="Share your suggestions..."></textarea>
+          <div class="text-danger" id="suggestionError"></div>
         </div>
 
         <div class="mb-3">
@@ -142,6 +149,7 @@
               <label class="form-check-label" for="recommendNo">No</label>
             </div>
           </div>
+          <div class="text-danger" id="recommendError"></div>
         </div>
 
         <button type="submit" class="btn btn-success w-100 mt-3">Send Feedback</button>
@@ -171,37 +179,91 @@
       const email = document.getElementById("userEmail").value.trim(); // Get and trim the email address
       const location = document.getElementById("location").value.trim(); // Get and trim the location 
       const suggestions = document.getElementById("suggestions").value.trim();  // Get and trim the suggestion
+
+      // Clear previous messages
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("locationError").innerHTML = "";
+    document.getElementById("suggestionError").innerHTML = "";
+    document.getElementById("deliveryError").innerHTML = "";
+    document.getElementById("ratingError").innerHTML = "";
+    document.getElementById("productError").innerHTML = "";
+    document.getElementById("recommendError").innerHTML = "";
+
+    let valid = true;
+      
   
       // Validate full name:
       // Must have at least two words separated by spaces (letters only)
       const nameRegex = /^[A-Za-z]+\s[A-Za-z]+(\s[A-Za-z]+)*$/;
       if (!nameRegex.test(name)) {
-        alert("Full name must include at least two words (letters only).");
-        return; // Stop form submission if invalid
+        document.getElementById("nameError").innerHTML = "Full name must include at least two words.";
+        valid = false;
       }
   
       // Validate email format:
       // Should follow email address format  (name@example.com)
       const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
       if (!emailRegex.test(email)) {
-        alert("Please enter a valid email address.");
-        return; // Stop form submission if invalid 
+        document.getElementById("emailError").innerHTML = "Invalid email format.";
+        valid = false;
       }
   
       // Validate location input:
       // Only letters and spaces, and minimum 3 characters
       const locationRegex = /^[A-Za-z\s]{3,}$/;
       if (!locationRegex.test(location)) {
-        alert("Location must be at least 3 characters long and contain only letters.");
-        return; // Stop form submission if invalid
+        document.getElementById("locationError").innerHTML = "Location must be at least 3 letters.";
+        valid = false;
       }
 
     // Validate suggestions input:
     // Must be at least 10 characters 
     if (suggestions.length < 10) {
-      alert("Suggestions must be at least 10 characters long.");
-      return; // Stop form submission if invalid
+      document.getElementById("suggestionError").innerHTML = "Suggestions must be at least 10 characters.";
+      valid = false;
     }
+
+    // Validate delivery:
+    const deliveryYes = document.getElementById("deliveryYes").checked;
+    const deliveryNo = document.getElementById("deliveryNo").checked;
+
+    if (!deliveryYes && !deliveryNo) {
+      document.getElementById("deliveryError").innerHTML = "Please select Yes or No for delivery service.";
+      valid = false;
+    }
+
+    // Validate Product Rating:
+    if (rating === "") {
+      document.getElementById("ratingError").innerHTML = "Please rate the product quality.";
+      valid = false;
+    }
+
+    // Validate Products Purchased:
+    // at least one
+    const productChecked = 
+      document.getElementById("veg").checked ||
+      document.getElementById("fruits").checked ||
+      document.getElementById("dairy").checked ||
+      document.getElementById("seeds").checked;
+
+    if (!productChecked) {
+      document.getElementById("productError").innerHTML = "Please select at least one product.";
+      valid = false;
+    }
+
+    // Validate Recommend to others:
+    const recommendYes = document.getElementById("recommendYes").checked;
+    const recommendNo = document.getElementById("recommendNo").checked;
+
+    if (!recommendYes && !recommendNo) {
+      document.getElementById("recommendError").innerHTML = "Please select Yes or No.";
+      valid = false;
+    }
+
+    // If invalid, stop here
+    if (!valid)
+     return;
 
     // All valid :
     // Display a success message 
