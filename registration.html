@@ -59,21 +59,25 @@
     <div class="mb-3">
       <label for="fullName" class="form-label">Full Name</label>
       <input type="text" id="fullName" class="form-control" placeholder="Sara Ahmed" required>
+      <div class="text-danger" id="nameError"></div>
     </div>
 
     <div class="mb-3">
       <label for="userEmail" class="form-label">Email Address</label>
       <input type="email" id="userEmail" class="form-control" placeholder="example@domain.com" required>
+      <div class="text-danger" id="emailError"></div>
     </div>
 
     <div class="mb-3">
       <label for="phoneNumber" class="form-label">Phone Number</label>
       <input type="tel" id="phoneNumber" class="form-control" placeholder="8 digits only" maxlength="8" required>
+      <div class="text-danger" id="phoneError"></div>
     </div>
 
     <div class="mb-3">
       <label for="location" class="form-label">Farm Location</label>
       <input type="text" id="location" class="form-control" placeholder="City or Region" required>
+      <div class="text-danger" id="locationError"></div>
     </div>
 
     <div class="mb-3">
@@ -86,6 +90,7 @@
         <option value="Dairy">Dairy</option>
         <option value="Mixed">Mixed Farming</option>
       </select>
+      <div class="text-danger" id="farmTypeError"></div>
     </div>
 
     <div class="mb-3">
@@ -97,11 +102,14 @@
         • At least 1 uppercase letter<br/>
         • At least 1 special character (!@#$%^&*)
       </div>
+      <div class="text-danger" id="passwordError"></div>
     </div>
 
     <button type="submit" class="btn btn-success w-100 mt-3">Register</button>
   </form>
 </div>
+
+
  <!--footer-->
  <footer class="fixed-bottom bg-secondary py-2">
   <div class="text-center">
@@ -126,51 +134,64 @@
     const location = document.getElementById("location").value.trim();
     const farmType = document.getElementById("farmType").value;
     const password = document.getElementById("password").value.trim();
+
+
+    // Clear previous errors
+      document.getElementById("nameError").innerHTML = "";
+      document.getElementById("emailError").innerHTML = "";
+      document.getElementById("phoneError").innerHTML = "";
+      document.getElementById("locationError").innerHTML = "";
+      document.getElementById("farmTypeError").innerHTML = "";
+      document.getElementById("passwordError").innerHTML = "";
+
+      let valid = true;
     
   
     // Validate full name (letters only, at least two words)
     const nameRegex = /^[A-Za-z]+\s[A-Za-z]+(\s[A-Za-z]+)*$/;
     if (!nameRegex.test(name)) {
-      alert("Full name must include at least two words (letters only).");
-      return;
+      document.getElementById("nameError").innerHTML = "Full name must include at least two words (letters only).";
+        valid = false;
     }
   
     // Validate email
     const emailRegex =  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
+      document.getElementById("emailError").innerHTML = "Please enter a valid email address.";
+        valid = false;
     }
   
     // Validate phone number (must exactly 8 digits)
     const phoneRegex = /^\d{8}$/;
     if (!phoneRegex.test(phone)) {
-      alert("Phone number must be exactly 8 digits.");
-      return;
+      document.getElementById("phoneError").innerHTML = "Phone number must be exactly 8 digits.";
+      valid = false;
     }
 
      // Validate farm location (at least 3 letters, letters and spaces only)
      const locationRegex = /^[A-Za-z\s]{3,}$/;
     if (!locationRegex.test(location)) {
-      alert("Farm location must be at least 3 letters and contain only letters and spaces.");
-      return;
+      document.getElementById("locationError").innerHTML = "Farm location must be at least 3 letters.";
+        valid = false;
     }
 
     // Validate farm type 
     if (farmType === "") {
-      alert("Please select a type of farm.");
-      return;
+      document.getElementById("farmTypeError").innerHTML = "Please select a type of farm.";
+        valid = false;
     }
   
     // Validate password
     const minLength = password.length >= 6;
     const hasUppercase = /[A-Z]/.test(password);
     const hasSpecialChar = /[!@#\$%\^&\*]/.test(password);
-
     if (!minLength || !hasUppercase || !hasSpecialChar) {
-      alert("Password must be at least 6 characters, contain one uppercase letter, and one special character (!@#$%^&*).");
-      return;
+      document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters, contain an uppercase letter, and a special character.";
+      valid = false;
     }
+
+    if (!valid)
+     return;
   
     // All valid
     alert(`Registration successful! Welcome, ${name}!`);
