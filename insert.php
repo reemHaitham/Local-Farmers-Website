@@ -45,33 +45,35 @@
     
     <br/>
     <br/>
-
-    <div class="container">
+<div class="container">
         <h2 class="text-center text-dark mt-4 mb-4">Suggest product to add to the farms!</h2>
 
-        <div class="card card-default col-md-6 col-md-offset-3">
+        <div class="card card-default col-md-6 offset-md-3">
             <div class="card-body bg-white p-4">
                 <form method="post" action="">
-                    <div class="form-group">
-                        <label for="brand" class="control-label">Brand:</label>
-                        <input type="text" class="form-control" name="brand" required>
+                    <div class="form-group mb-3">
+                        <label for="product_type" class="control-label">Product Type:</label>
+                        <input type="text" class="form-control" name="product_type" id="product_type" required>
                     </div>
-                    <div class="form-group">
-                        <label for="type" class="control-label">Type:</label>
-                        <input type="text" class="form-control" name="type" required placeholder="Monocrystalline/ Polycrystalline/ Thin-film">
+                    <div class="form-group mb-3">
+                        <label for="product_name" class="control-label">Product Name:</label>
+                        <input type="text" class="form-control" name="product_name" id="product_name" required>
                     </div>
-                    <div class="form-group">
-                        <label for="wattage" class="control-label">Wattage:</label>
-                        <input type="text" class="form-control" name="wattage" required>
+                    <div class="form-group mb-3">
+                        <label for="product_describe" class="control-label">Description:</label>
+                        <input type="text" class="form-control" name="product_describe" id="product_describe" required>
                     </div>
-                    <button type="submit" class="btn btn-warning btn-block">Insert</button>
+                    <div class="form-group mb-3">
+                        <label for="product_price" class="control-label">Price:</label>
+                        <input type="number" step="0.01" class="form-control" name="product_price" id="product_price" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-block w-100">Insert</button>
                 </form>
             </div>
         </div>
 
-
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['product_type'], $_POST['product_name'], $_POST['product_describe'],  $_POST['product_price'])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['product_type'], $_POST['product_name'], $_POST['product_describe'], $_POST['product_price'])) {
         // Database connection parameters
         $servername = "localhost";
         $username = "root";
@@ -88,12 +90,12 @@
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error) {
-            die('<div class="alert alert-danger">Connection failed . htmlspecialchars($conn->connect_error) . "</div>');
-        }
-
         try {
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            if ($conn->connect_error) {
+                die('<div class="alert alert-danger">Connection failed: ' . htmlspecialchars($conn->connect_error) . "</div>");
+            }
+
             // Check if record already exists
             $stmt = $conn->prepare("SELECT * FROM products WHERE product_name = ?");
             $stmt->bind_param("s", $name);
@@ -101,10 +103,10 @@
             $result = $stmt->get_result();
 
             if ($result->num_rows > 0) {
-                echo "<p style='color:red;'>This product already exists!</p>";
+                echo "<div class='alert alert-danger text-center'>This product already exists!</div>";
             } else {
                 // Insert new record
-                $stmt = $conn->prepare("INSERT INTO products (product_type, product_name, product_describe, product_price) VALUES (?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO products (product_type, product_name, product_describe, product_price) VALUES (?, ?, ?, ?)");
                 $stmt->bind_param("sssd", $type, $name, $describe, $price);
                 if ($stmt->execute()) {
                     echo "<div class='alert alert-success text-center'>Record inserted successfully!</div>";
@@ -113,18 +115,12 @@
                 }
             }
             $stmt->close();
+            $conn->close();
         } catch (Exception $e) {
             echo "<div class='alert alert-danger text-center'>Error: " . htmlspecialchars($e->getMessage()) . "</div>";
         }
-
-        $conn->close();
     }
     ?>
-
-<br><br>
-<br/><br/><br/>
-<br/><br/><br/>        
-        ?>
     
       </div>
 
