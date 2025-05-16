@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2025 at 07:06 AM
+-- Generation Time: May 16, 2025 at 07:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,27 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Table structure for table `profiles`
 --
 
-CREATE TABLE `orders` (
-  `orders_id` text NOT NULL,
-  `date` text NOT NULL,
-  `numOfItems` int(11) NOT NULL,
-  `total` double NOT NULL,
-  `status` text NOT NULL
+CREATE TABLE `profiles` (
+  `farmerName` text NOT NULL,
+  `farmName` text NOT NULL,
+  `Location` text NOT NULL,
+  `Products` text NOT NULL,
+  `Method` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `orders`
+-- Dumping data for table `profiles`
 --
 
-INSERT INTO `orders` (`orders_id`, `date`, `numOfItems`, `total`, `status`) VALUES
-('FV-78945', 'Jun 12, 2023', 5, 42.5, 'Delivered'),
-('FV-46502', 'Jun 8, 2023', 3, 28.7, 'Shipped'),
-('FV-50697', 'Jun 5, 2023', 7, 65.2, 'Processing'),
-('FV-70192', 'Apr 13, 2025', 1, 4.5, 'Delivered'),
-('FV-77385', 'Feb 25, 2024', 4, 33.15, 'Shipped\r\n');
+INSERT INTO `profiles` (`farmerName`, `farmName`, `Location`, `Products`, `Method`) VALUES
+('John Doe', 'Green Valley', 'Salalah', 'Organic Vegetables', 'Eco-friendly'),
+('Alice Smith', 'Sunny Acres', 'Sur', 'Free-range Eggs', 'Pasture-raised'),
+('Bob Johnson', 'Hilltop Farms', 'Sohar', 'Citrus Fruits', 'Non-GMO'),
+('Mary Evans', 'Riverbend Farm', 'Muscat', 'Organic Dairy', 'Grass-fed'),
+('kothar Ahmed', 'Happy Farm', 'Qurayyat', 'Vegetables', 'Hydroponics');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
