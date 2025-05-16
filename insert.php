@@ -1,3 +1,6 @@
+<?php
+require_once 'db_connect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,53 +76,31 @@
         </div>
 
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['product_type'], $_POST['product_name'], $_POST['product_describe'], $_POST['product_price'])) {
-        // Database connection parameters
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "localFarmers";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        // Retrieve form data
-        $type = htmlspecialchars($_POST['product_type']);
-        $name = htmlspecialchars($_POST['product_name']);
-        $describe = htmlspecialchars($_POST['product_describe']);
-        $price = htmlspecialchars($_POST['product_price']);
+    // Retrieve form data
+    $type = htmlspecialchars($_POST['product_type']);
+    $name = htmlspecialchars($_POST['product_name']);
+    $describe = htmlspecialchars($_POST['product_describe']);
+    $price = htmlspecialchars($_POST['product_price']);
 
-        // Enable error reporting
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-        // Create connection
-        try {
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            if ($conn->connect_error) {
-                die('<div class="alert alert-danger">Connection failed: ' . htmlspecialchars($conn->connect_error) . "</div>");
-            }
-
-            // Check if record already exists
-            $stmt = $conn->prepare("SELECT * FROM products WHERE product_name = ?");
-            $stmt->bind_param("s", $name);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                echo "<div class='alert alert-danger text-center'>This product already exists!</div>";
-            } else {
-                // Insert new record
-                $stmt = $conn->prepare("INSERT INTO products (product_type, product_name, product_describe, product_price) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("sssd", $type, $name, $describe, $price);
-                if ($stmt->execute()) {
-                    echo "<div class='alert alert-success text-center'>Record inserted successfully!</div>";
-                } else {
-                    echo "<div class='alert alert-danger text-center'>Error: " . htmlspecialchars($stmt->error) . "</div>";
-                }
-            }
-            $stmt->close();
-            $conn->close();
-        } catch (Exception $e) {
-            echo "<div class='alert alert-danger text-center'>Error: " . htmlspecialchars($e->getMessage()) . "</div>";
+    try {
+        // Check if product already exists
+        $stmt = $pdo->prepare("SELECT * FROM products WHERE product_name = ?");
+        $stmt->execute([$name]);
+        if ($stmt->rowCount() > 0) {
+            echo "<div class='alert alert-danger text-center'>This product already exists!</div>";
+        } else {
+            // Insert new product
+            $stmt = $pdo->prepare("INSERT INTO products (product_type, product_name, product_describe, product_price) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$type, $name, $describe, $price]);
+            echo "<div class='alert alert-success text-center'>Record inserted successfully!</div>";
         }
+    } catch (PDOException $e) {
+        echo "<div class='alert alert-danger text-center'>Error: " . htmlspecialchars($e->getMessage()) . "</div>";
     }
+}
+    
     ?>
     
       </div>
