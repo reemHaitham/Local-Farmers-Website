@@ -20,19 +20,22 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="registration.html">Registration</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 active px-3" href="questionnaire.html">Questionnaire</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.html">Calculate</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.html">Contact Us</a></li>
-                </ul>
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="registration.html">Registration</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="insert.php">Insert</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="delete_product.php">Delete</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="search_products.php">Search</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="farmerProfile.php">Farmer Profiles</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 active px-3" href="questionnaire.html">Questionnaire</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.php">Calculate</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.php">Contact Us</a></li>
+        </ul>
             </div>
         </div>
     </nav>
@@ -62,19 +65,19 @@
     <form id="feedbackForm" class="bg-white p-4 rounded shadow-sm" action="process_questionnaire.php" method="post">
           <div class="mb-3">
             <label for="fullName" class="form-label">Full Name</label>
-            <input type="text" id="fullName" class="form-control" placeholder="Sara Ahmed" required>
+            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Sara Ahmed" required>
             <div class="text-danger" id="nameError"></div>
           </div>
 
           <div class="mb-3">
             <label for="userEmail" class="form-label">Email Address</label>
-            <input type="email" id="userEmail" class="form-control" placeholder="example@domain.com" required>
+            <input type="email" id="userEmail" name="userEmail" class="form-control" placeholder="example@domain.com" required>
             <div class="text-danger" id="emailError"></div>
           </div>
 
           <div class="mb-3">
             <label for="location" class="form-label">City or Region</label>
-            <input type="text" id="location" class="form-control" placeholder="City name" required>
+            <input type="text" id="location" name="location" class="form-control" placeholder="City name" required>
             <div class="text-danger" id="locationError"></div>
           </div>
 
@@ -82,7 +85,7 @@
       <h4 class="mb-3 text-success">Experience Feedback</h4>
       <div class="mb-3">
         <label for="rating" class="form-label">Rate Product Quality</label>
-        <select id="rating" class="form-select" required>
+        <select id="rating" name="rating" class="form-select" required>
           <option value="">Select an option</option>
           <option value="Excellent">Excellent</option>
           <option value="Good">Good</option>
@@ -96,19 +99,19 @@
       <div class="mb-3">
         <label class="form-label">Products Purchased:</label>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="veg" value="Vegetables">
+          <input class="form-check-input" type="checkbox" name="veg" id="veg" value="Vegetables">
           <label class="form-check-label" for="veg">Vegetables 🥒</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="fruits" value="Fruits">
+          <input class="form-check-input" type="checkbox" id="fruits" name="fruits" value="Fruits">
           <label class="form-check-label" for="fruits">Fruits 🍒</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="dairy" value="Dairy">
+          <input class="form-check-input" type="checkbox" id="dairy" name="dairy" value="Dairy">
           <label class="form-check-label" for="dairy">Dairy Products 🧀</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="seeds" value="Seeds">
+          <input class="form-check-input" type="checkbox" id="seeds" name="seeds" value="Seeds">
           <label class="form-check-label" for="seeds">Seeds 🫘</label>
         </div>
         <div class="text-danger" id="productError"></div>
@@ -133,7 +136,7 @@
       <h4 class="mb-3 text-success">Suggestions</h4>
         <div class="mb-3">
           <label for="suggestions" class="form-label">What can we improve?</label>
-          <textarea id="suggestions" class="form-control" rows="4" placeholder="Share your suggestions..."></textarea>
+          <textarea id="suggestions" name="suggestions" class="form-control" rows="4" placeholder="Share your suggestions..."></textarea>
           <div class="text-danger" id="suggestionError"></div>
         </div>
 
@@ -265,10 +268,6 @@
     if (!valid)
      return;
 
-    // All valid :
-    // Display a success message 
-    alert(`Thank you for your feedback, ${name}!`);
-    document.getElementById("feedbackForm").reset(); // Clear the form fields
   });
 </script>
 
