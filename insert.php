@@ -26,14 +26,16 @@ require_once 'db_connect.php';
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="registration.html">Registration</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 active px-3" href="insert.php">Insert</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6  px-3" href="delete_product.php">Delete</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6  px-3" href="search_products.php">Search</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="questionnaire.html">Questionnaire</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.html">Calculate</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.php">Calculate</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link fs-6 active px-3" href="insert.php">Insert</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.php">Contact Us</a></li>
 
                 </ul>
             </div>
