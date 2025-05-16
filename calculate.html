@@ -60,29 +60,26 @@
                         </div>
 
                         <!-- Calculator Form -->
-                        <form id="billCalculator" class="needs-validation" novalidate>
+                        <form id="billCalculator" action="calculate.php" method="post" class="needs-validation" novalidate>
                             <!-- Customer Information -->
                             <div class="mb-4 p-3 border rounded">
                                 <h3 class="mb-3">Customer Information</h3>
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="customerName" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="customerName" required>
-                                        <div class="invalid-feedback">
+                                        <input type="text" class="form-control" id="customerName" name="customerName" required>                                        <div class="invalid-feedback">
                                             Please enter your name.
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="customerAge" class="form-label">Age</label>
-                                        <input type="number" class="form-control" id="customerAge" min="0" required>
-                                        <div class="invalid-feedback">
+                                        <input type="number" class="form-control" id="customerAge" name="customerAge" min="0" required>                                        <div class="invalid-feedback">
                                             Please enter a valid age.
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="firstTimeCustomer">
-                                            <label class="form-check-label" for="firstTimeCustomer">
+                                        <input type="checkbox" class="form-check-input" id="firstTimeCustomer" name="firstTimeCustomer">                                            <label class="form-check-label" for="firstTimeCustomer">
                                                 First time customer? (10% discount)
                                             </label>
                                         </div>
@@ -108,15 +105,14 @@
                                                 <td>Organic Apples</td>
                                                 <td>2.50-OMR</td>
                                                 <td>
-                                                    <input type="number" class="form-control apple-qty" min="0" step="0.1" value="0">
-                                                </td>
+                                                <input type="number" class="form-control apple-qty" name="appleQty" min="0" step="0.1" value="0">                                                </td>
                                                 <td class="apple-subtotal">0.00-OMR</td>
                                             </tr>
                                             <tr>
                                                 <td>Fresh Tomatoes</td>
                                                 <td>3.00-OMR</td>
                                                 <td>
-                                                    <input type="number" class="form-control tomato-qty" min="0" step="0.1" value="0">
+                                                <input type="number" class="form-control tomato-qty" name="tomatoQty" min="0" step="0.1" value="0">
                                                 </td>
                                                 <td class="tomato-subtotal">0.00-OMR</td>
                                             </tr>
@@ -124,7 +120,7 @@
                                                 <td>Local Honey</td>
                                                 <td>8.00-OMR</td>
                                                 <td>
-                                                    <input type="number" class="form-control honey-qty" min="0" step="0.1" value="0">
+                                                    <input type="number" class="form-control honey-qty" name="honeyQty" min="0" step="0.1" value="0">
                                                 </td>
                                                 <td class="honey-subtotal">0.00-OMR</td>
                                             </tr>
@@ -132,7 +128,7 @@
                                                 <td>Farm Eggs (dozen)</td>
                                                 <td>4.50-OMR</td>
                                                 <td>
-                                                    <input type="number" class="form-control eggs-qty" min="0" step="1" value="0">
+                                                    <input type="number" class="form-control eggs-qty" name="eggsQty" min="0" step="1" value="0">
                                                 </td>
                                                 <td class="eggs-subtotal">0.00-OMR</td>
                                             </tr>
@@ -143,9 +139,7 @@
 
                             <!-- Calculate Button -->
                             <div class="d-grid gap-2">
-                                <button type="button" class="btn btn-success btn-lg" onclick="calculateBill()">
-                                    Calculate Total Bill
-                                </button>
+                                <button type="submit" class="btn btn-success btn-lg">Calculate Total Bill</button>
                             </div>
                         </form>
 
