@@ -16,9 +16,9 @@ class Review {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'] ?? '';
-    $text = $_POST['review'] ?? '';
-    $rating = $_POST['rating'] ?? '';
+    $name = $_POST['reviewer_name'] ?? '';
+    $text = $_POST['reviewer_text'] ?? '';
+    $rating = $_POST['reviewer_rate'] ?? '';
     
     // Insert into database
     $stmt = $pdo->prepare("INSERT INTO reviews (reviewer_name, reviewer_text, reviewer_rate, DATE) VALUES (?, ?, ?, ?)");
