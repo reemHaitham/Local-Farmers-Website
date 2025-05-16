@@ -50,7 +50,7 @@
 
 <!-- Registration Form -->
 
-  <form id="registrationForm" class="bg-white p-4 rounded shadow-sm">
+  <form id="registrationForm" class="bg-white p-4 rounded shadow-sm" action="register_farmer.php" method="post">
     <div class="text-center text-success">
       <h3>Join Our Farmer Community</h3>
       <p>Fill in your details to register!</p>
@@ -58,31 +58,31 @@
     
     <div class="mb-3">
       <label for="fullName" class="form-label">Full Name</label>
-      <input type="text" id="fullName" class="form-control" placeholder="Sara Ahmed" required>
+      <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Sara Ahmed" required>
       <div class="text-danger" id="nameError"></div>
     </div>
 
     <div class="mb-3">
       <label for="userEmail" class="form-label">Email Address</label>
-      <input type="email" id="userEmail" class="form-control" placeholder="example@domain.com" required>
+      <input type="email" id="userEmail" name="userEmail" class="form-control" placeholder="example@domain.com" required>
       <div class="text-danger" id="emailError"></div>
     </div>
 
     <div class="mb-3">
       <label for="phoneNumber" class="form-label">Phone Number</label>
-      <input type="tel" id="phoneNumber" class="form-control" placeholder="8 digits only" maxlength="8" required>
+      <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="8 digits only" maxlength="8" required>
       <div class="text-danger" id="phoneError"></div>
     </div>
 
     <div class="mb-3">
       <label for="location" class="form-label">Farm Location</label>
-      <input type="text" id="location" class="form-control" placeholder="City or Region" required>
+      <input type="text" id="location" name="location" class="form-control" placeholder="City or Region" required>
       <div class="text-danger" id="locationError"></div>
     </div>
 
     <div class="mb-3">
       <label for="farmType" class="form-label">Type of Farm</label>
-      <select id="farmType" class="form-select" required>
+      <select id="farmType" name="farmType" class="form-select" required>
         <option value="">Select a farm type</option>
         <option value="Vegetables">Vegetables</option>
         <option value="Fruits">Fruits</option>
@@ -95,7 +95,7 @@
 
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" id="password" class="form-control" placeholder="At least 6 characters" required>
+      <input type="password" id="password" name="password" class="form-control" placeholder="At least 6 characters" required>
       <div class="form-text text-danger">
         Password must have:<br/>
         • At least 6 characters<br/>
