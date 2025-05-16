@@ -4,7 +4,7 @@ require_once 'db_connect.php';
 class Farmer {
     public $name;
     public $farmName;
-    public $location;
+    public $Location;
     public $products;
     public $method;
     
@@ -23,22 +23,22 @@ function displayFarmersTable($farmers) {
     echo '<tbody>';
     foreach ($farmers as $farmer) {
         echo '<tr>';
-        echo '<td>'.htmlspecialchars($farmer->name).'</td>';
+        echo '<td>'.htmlspecialchars($farmer->farmerName).'</td>';
         echo '<td>'.htmlspecialchars($farmer->farmName).'</td>';
-        echo '<td>'.htmlspecialchars($farmer->location).'</td>';
-        echo '<td>'.htmlspecialchars($farmer->products).'</td>';
-        echo '<td>'.htmlspecialchars($farmer->method).'</td>';
+        echo '<td>'.htmlspecialchars($farmer->Location).'</td>';
+        echo '<td>'.htmlspecialchars($farmer->Products).'</td>';
+        echo '<td>'.htmlspecialchars($farmer->Method).'</td>';
         echo '</tr>';
     }
     echo '</tbody></table>';
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'] ?? '';
+    $name = $_POST['farmerName'] ?? '';
     $farmName = $_POST['farmName'] ?? '';
-    $location = $_POST['location'] ?? '';
-    $products = $_POST['products'] ?? '';
-    $method = $_POST['method'] ?? '';
+    $location = $_POST['Location'] ?? '';
+    $products = $_POST['Products'] ?? '';
+    $method = $_POST['Method'] ?? '';
     
     // Insert into database
     $stmt = $pdo->prepare("INSERT INTO profiles (farmerName, farmName, Location, Products, Method) VALUES (?, ?, ?, ?, ?)");
