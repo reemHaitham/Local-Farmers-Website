@@ -1,36 +1,115 @@
 <?php
 require_once 'db_connect.php';
+// Display success/error messages
+$success = $_GET['success'] ?? '';
+$error = $_GET['error'] ?? '';
 
+if ($success === 'deleted') {
+    echo '<div class="alert alert-success">Product deleted successfully.</div>';
+}
+
+if ($error === 'notfound') {
+    echo '<div class="alert alert-danger">Product not found.</div>';
+} elseif ($error === 'dberror') {
+    echo '<div class="alert alert-danger">Database error occurred.</div>';
+} elseif ($error === 'noid') {
+    echo '<div class="alert alert-danger">No product ID specified.</div>';
+}
 // search_products.php
-
-// Database configuration
+// db_connect.php
 $host = 'localhost';
+$user = 'root'; // default XAMPP username
+$pass = '';     // default XAMPP password
 $dbname = 'localfarmer';
-$username = 'root';
-$password = '';
 
-// Enable error reporting
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-        // Create connection
-        try {
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            if ($conn->connect_error) {
-                die('<div class="alert alert-danger">Connection failed: ' . htmlspecialchars($conn->connect_error) . "</div>");
-            }}
-        catch (Exception $e) {
-            echo "<div class='alert alert-danger text-center'>Error: " . htmlspecialchars($e->getMessage()) . "</div>";
-        }
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    // First try to connect directly to the database
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+} catch (PDOException $e) {
+    // If database doesn't exist, try to create it
+    try {
+        $pdo = new PDO("mysql:host=$host;charset=utf8mb4", $user, $pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        // Create database if it doesn't exist
+        $pdo->exec("CREATE DATABASE IF NOT EXISTS `$dbname`");
+        
+        // Now connect to the newly created database
+        $pdo->exec("USE `$dbname`");
+        
+        // Create products table if it doesn't exist
+        $pdo->exec("CREATE TABLE IF NOT EXISTS `products` (
+            `id` INT AUTO_INCREMENT PRIMARY KEY,
+            `name` VARCHAR(255) NOT NULL,
+            `category` VARCHAR(100) NOT NULL,
+            `price` DECIMAL(10,2) NOT NULL,
+            `description` TEXT,
+            `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )");
+        
+    } catch (PDOException $e) {
+        die("Could not connect to database: " . $e->getMessage());
+    }
+}
     // Initialize variables
-    $searchTerm = '';
-    $category = '';
-    $minPrice = '';
-    $maxPrice = '';
-    $results = [];
+$searchTerm = '';
+$category = '';
+$minPrice = '';
+$maxPrice = '';
+$results = [];
+$error = '';
+
+// Check if form was submitted
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET)) {
+    try {
+        // Get search parameters
+        $searchTerm = htmlspecialchars($_GET['searchTerm'] ?? '');
+        $category = htmlspecialchars($_GET['category'] ?? '');
+        $minPrice = floatval($_GET['minPrice'] ?? '');
+        $maxPrice = floatval($_GET['maxPrice'] ?? '');
+
+        // Build SQL query
+        $sql = "SELECT * FROM products WHERE 1=1";
+        $params = [];
+
+        if (!empty($searchTerm)) {
+            $sql .= " AND name LIKE :searchTerm";
+            $params[':searchTerm'] = "%$searchTerm%";
+        }
+
+        if (!empty($category)) {
+            $sql .= " AND category = :category";
+            $params[':category'] = $category;
+        }
+
+        if (!empty($minPrice)) {
+            $sql .= " AND price >= :minPrice";
+            $params[':minPrice'] = $minPrice;
+        }
+
+        if (!empty($maxPrice)) {
+            $sql .= " AND price <= :maxPrice";
+            $params[':maxPrice'] = $maxPrice;
+        }
+
+        // Prepare and execute query
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        $error = "Database error: " . $e->getMessage();
+    }
+}
+
+try {
+    // Get distinct categories for dropdown
+    $categoryStmt = $pdo->query("SELECT DISTINCT category FROM products");
+    $categories = $categoryStmt->fetchAll(PDO::FETCH_COLUMN);
+} catch (PDOException $e) {
+    $error = "Could not load categories: " . $e->getMessage();
+    $categories = [];
+}
 
     // Check if form was submitted
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET)) {
@@ -74,9 +153,6 @@ try {
     $categoryStmt = $pdo->query("SELECT DISTINCT category FROM products");
     $categories = $categoryStmt->fetchAll(PDO::FETCH_COLUMN);
 
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
 ?>
 
 <!DOCTYPE html>
