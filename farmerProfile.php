@@ -70,7 +70,7 @@ $reviews = $stmt->fetchAll();
                 <form method="post" action="farmer_process.php">
                     <div class="mb-2">
                         <label for="name" class="form-label mb-0 fs-6">Farmer Name:</label>
-                        <input type="text" name="name" id="name" class="form-control form-control-sm" required>
+                        <input type="text" name="farmerName" id="name" class="form-control form-control-sm" required>
                     </div>
                     <div class="mb-2">
                         <label for="farmName" class="form-label mb-0 fs-6">Farm Name:</label>
@@ -78,15 +78,15 @@ $reviews = $stmt->fetchAll();
                     </div>
                     <div class="mb-2">
                         <label for="location" class="form-label mb-0 fs-6">Location:</label>
-                        <input type="text" name="location" id="location" class="form-control form-control-sm" required>
+                        <input type="text" name="Location" id="location" class="form-control form-control-sm" required>
                     </div>
                     <div class="mb-2">
                         <label for="products" class="form-label mb-0 fs-6">Products:</label>
-                        <input type="text" name="products" id="products" class="form-control form-control-sm" required>
+                        <input type="text" name="Products" id="products" class="form-control form-control-sm" required>
                     </div>
                     <div class="mb-2">
                         <label for="method" class="form-label mb-0 fs-6">Farming Method:</label>
-                        <input type="text" name="method" id="method" class="form-control form-control-sm" required>
+                        <input type="text" name="Method" id="method" class="form-control form-control-sm" required>
                     </div>
                     <button type="submit" class="btn btn-success btn-sm mt-1">Add Profile</button>
                     <a href="farmerProfile.php" class="btn btn-secondary btn-sm mt-1">Back</a>
@@ -107,12 +107,12 @@ $reviews = $stmt->fetchAll();
                     <div class="card h-100 shadow-sm">
                         <img src="farmer.jpg" alt="<?= htmlspecialchars($farmer->name) ?>" class="card-img-top img-fluid" style="height:200px; object-fit:cover;">
                         <div class="card-body p-2">
-                            <h5 class="card-title text-success fs-6 mb-1"><?= htmlspecialchars($farmer->name) ?></h5>
+                            <h5 class="card-title text-success fs-6 mb-1"><?= htmlspecialchars($farmer->farmerName) ?></h5>
                             
                             <p class="card-text mb-1"><small class="text-muted">Farm:</small> <?= htmlspecialchars($farmer->farmName) ?></p>
-                            <p class="card-text mb-1"><small class="text-muted">Location:</small> <?= htmlspecialchars($farmer->location) ?></p>
-                            <p class="card-text mb-1"><small class="text-muted">Products:</small> <?= htmlspecialchars($farmer->products) ?></p>
-                            <p class="card-text mb-1"><small class="text-muted">Method:</small> <?= htmlspecialchars($farmer->method) ?></p>
+                            <p class="card-text mb-1"><small class="text-muted">Location:</small> <?= htmlspecialchars($farmer->Location) ?></p>
+                            <p class="card-text mb-1"><small class="text-muted">Products:</small> <?= htmlspecialchars($farmer->Products) ?></p>
+                            <p class="card-text mb-1"><small class="text-muted">Method:</small> <?= htmlspecialchars($farmer->Method) ?></p>
                         </div>
                     </div>
                 </div>
@@ -138,9 +138,9 @@ $reviews = $stmt->fetchAll();
                     <?php foreach ($farmers as $farmer): ?>
                         <tr>
                             <td><?= htmlspecialchars($farmer->farmName) ?></td>
-                            <td><?= htmlspecialchars($farmer->location) ?></td>
-                            <td><?= htmlspecialchars($farmer->products) ?></td>
-                            <td><?= htmlspecialchars($farmer->method) ?></td>
+                            <td><?= htmlspecialchars($farmer->Location) ?></td>
+                            <td><?= htmlspecialchars($farmer->Products) ?></td>
+                            <td><?= htmlspecialchars($farmer->Method) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -158,30 +158,30 @@ $reviews = $stmt->fetchAll();
                 <form method="post" action="process_review.php">
                     <div class="mb-2">
                         <label for="reviewName" class="form-label mb-0 fs-6">Customer Name:</label>
-                        <input type="text" name="name" id="reviewName" class="form-control form-control-sm" required>
+                        <input type="text" name="reviewer_name" id="reviewName" class="form-control form-control-sm" required>
                     </div>
                     <div class="mb-2">
                         <label class="form-label mb-0 fs-6">Rate your experience:</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="rating" id="excellent" value="Excellent" checked>
+                            <input class="form-check-input" type="radio" name="reviewer_rate" id="excellent" value="Excellent" checked>
                             <label class="form-check-label" for="excellent">Excellent</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="rating" id="good" value="Good">
+                            <input class="form-check-input" type="radio" name="reviewer_rate" id="good" value="Good">
                             <label class="form-check-label" for="good">Good</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="rating" id="average" value="Average">
+                            <input class="form-check-input" type="radio" name="reviewer_rate" id="average" value="Average">
                             <label class="form-check-label" for="average">Average</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="rating" id="poor" value="Poor">
+                            <input class="form-check-input" type="radio" name="reviewer_rate" id="poor" value="Poor">
                             <label class="form-check-label" for="poor">Poor</label>
                         </div>
                     </div>
                     <div class="mb-2">
                         <label for="review" class="form-label mb-0 fs-6">Review:</label>
-                        <textarea name="review" id="review" class="form-control form-control-sm" rows="3" required></textarea>
+                        <textarea name="reviewer_text" id="review" class="form-control form-control-sm" rows="3" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-success btn-sm mt-1">Submit Review</button>
                     <a href="farmerProfile.php" class="btn btn-secondary btn-sm mt-1">Back</a>
@@ -199,13 +199,13 @@ $reviews = $stmt->fetchAll();
             <div class="col-md-6">
                 <div class="card border-warning h-100">
                     <div class="card-body p-2">
-                        <h5 class="card-title fs-6 mb-1"><?= htmlspecialchars($review->name) ?></h5>
-                        <p class="card-text mb-1">"<?= htmlspecialchars($review->text) ?>"</p>
+                        <h5 class="card-title fs-6 mb-1"><?= htmlspecialchars($review->reviewer_name) ?></h5>
+                        <p class="card-text mb-1">"<?= htmlspecialchars($review->reviewer_text) ?>"</p>
                         <p class="card-text mb-0">
                             <small class="text-muted">
                                 Rating: 
                                 <?php 
-                                $rating = htmlspecialchars($review->rating);
+                                $rating = htmlspecialchars($review->reviewer_rate);
                                 $icon = '';
                                 if ($rating === 'Excellent') $icon = 'bi bi-star-fill text-warning';
                                 elseif ($rating === 'Good') $icon = 'bi bi-star-half text-warning';
