@@ -173,103 +173,80 @@
   </footer>
 
   <script>
-    // Add a submit event listener to the feedback form
     document.getElementById("feedbackForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent default form submission
-  
-     // Get form values and trim 
-      const name = document.getElementById("fullName").value.trim();  // Get and trim the full name
-      const email = document.getElementById("userEmail").value.trim(); // Get and trim the email address
-      const location = document.getElementById("location").value.trim(); // Get and trim the location 
-      const suggestions = document.getElementById("suggestions").value.trim();  // Get and trim the suggestion
-
-      // Clear previous messages
-    document.getElementById("nameError").innerHTML = "";
-    document.getElementById("emailError").innerHTML = "";
-    document.getElementById("locationError").innerHTML = "";
-    document.getElementById("suggestionError").innerHTML = "";
-    document.getElementById("deliveryError").innerHTML = "";
-    document.getElementById("ratingError").innerHTML = "";
-    document.getElementById("productError").innerHTML = "";
-    document.getElementById("recommendError").innerHTML = "";
-
-    let valid = true;
-      
-  
-      // Validate full name:
-      // Must have at least two words separated by spaces (letters only)
-      const nameRegex = /^[A-Za-z]+\s[A-Za-z]+(\s[A-Za-z]+)*$/;
-      if (!nameRegex.test(name)) {
-        document.getElementById("nameError").innerHTML = "Full name must include at least two words.";
-        valid = false;
-      }
-  
-      // Validate email format:
-      // Should follow email address format  (name@example.com)
-      const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-      if (!emailRegex.test(email)) {
-        document.getElementById("emailError").innerHTML = "Invalid email format.";
-        valid = false;
-      }
-  
-      // Validate location input:
-      // Only letters and spaces, and minimum 3 characters
-      const locationRegex = /^[A-Za-z\s]{3,}$/;
-      if (!locationRegex.test(location)) {
-        document.getElementById("locationError").innerHTML = "Location must be at least 3 letters.";
-        valid = false;
-      }
-
-    // Validate suggestions input:
-    // Must be at least 10 characters 
-    if (suggestions.length < 10) {
-      document.getElementById("suggestionError").innerHTML = "Suggestions must be at least 10 characters.";
-      valid = false;
-    }
-
-    // Validate delivery:
-    const deliveryYes = document.getElementById("deliveryYes").checked;
-    const deliveryNo = document.getElementById("deliveryNo").checked;
-
-    if (!deliveryYes && !deliveryNo) {
-      document.getElementById("deliveryError").innerHTML = "Please select Yes or No for delivery service.";
-      valid = false;
-    }
-
-    // Validate Product Rating:
-    if (rating === "") {
-      document.getElementById("ratingError").innerHTML = "Please rate the product quality.";
-      valid = false;
-    }
-
-    // Validate Products Purchased:
-    // at least one
-    const productChecked = 
-      document.getElementById("veg").checked ||
-      document.getElementById("fruits").checked ||
-      document.getElementById("dairy").checked ||
-      document.getElementById("seeds").checked;
-
-    if (!productChecked) {
-      document.getElementById("productError").innerHTML = "Please select at least one product.";
-      valid = false;
-    }
-
-    // Validate Recommend to others:
-    const recommendYes = document.getElementById("recommendYes").checked;
-    const recommendNo = document.getElementById("recommendNo").checked;
-
-    if (!recommendYes && !recommendNo) {
-      document.getElementById("recommendError").innerHTML = "Please select Yes or No.";
-      valid = false;
-    }
-
-    // If invalid, stop here
-    if (!valid)
-     return;
-
-  });
-</script>
-
+        let valid = true;
+    
+        const name = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("userEmail").value.trim();
+        const location = document.getElementById("location").value.trim();
+        const suggestions = document.getElementById("suggestions").value.trim();
+        const rating = document.getElementById("rating").value;
+        const deliveryYes = document.getElementById("deliveryYes").checked;
+        const deliveryNo = document.getElementById("deliveryNo").checked;
+        const recommendYes = document.getElementById("recommendYes").checked;
+        const recommendNo = document.getElementById("recommendNo").checked;
+    
+        const productChecked = 
+            document.getElementById("veg").checked ||
+            document.getElementById("fruits").checked ||
+            document.getElementById("dairy").checked ||
+            document.getElementById("seeds").checked;
+    
+        // Clear previous errors
+        document.getElementById("nameError").innerHTML = "";
+        document.getElementById("emailError").innerHTML = "";
+        document.getElementById("locationError").innerHTML = "";
+        document.getElementById("suggestionError").innerHTML = "";
+        document.getElementById("deliveryError").innerHTML = "";
+        document.getElementById("ratingError").innerHTML = "";
+        document.getElementById("productError").innerHTML = "";
+        document.getElementById("recommendError").innerHTML = "";
+    
+        if (!/^[A-Za-z]+\s[A-Za-z]+(\s[A-Za-z]+)*$/.test(name)) {
+            document.getElementById("nameError").innerHTML = "Full name must include at least two words.";
+            valid = false;
+        }
+    
+        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+            document.getElementById("emailError").innerHTML = "Invalid email format.";
+            valid = false;
+        }
+    
+        if (!/^[A-Za-z\s]{3,}$/.test(location)) {
+            document.getElementById("locationError").innerHTML = "Location must be at least 3 letters.";
+            valid = false;
+        }
+    
+        if (suggestions.length < 10) {
+            document.getElementById("suggestionError").innerHTML = "Suggestions must be at least 10 characters.";
+            valid = false;
+        }
+    
+        if (!deliveryYes && !deliveryNo) {
+            document.getElementById("deliveryError").innerHTML = "Please select Yes or No for delivery.";
+            valid = false;
+        }
+    
+        if (!rating) {
+            document.getElementById("ratingError").innerHTML = "Please rate the product quality.";
+            valid = false;
+        }
+    
+        if (!productChecked) {
+            document.getElementById("productError").innerHTML = "Please select at least one product.";
+            valid = false;
+        }
+    
+        if (!recommendYes && !recommendNo) {
+            document.getElementById("recommendError").innerHTML = "Please select Yes or No for recommendation.";
+            valid = false;
+        }
+    
+        if (!valid) {
+            event.preventDefault(); 
+        }
+    });
+    </script>
+    
 </body>
 </html>

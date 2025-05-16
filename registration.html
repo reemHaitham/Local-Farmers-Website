@@ -21,19 +21,22 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link active fs-6 px-3" href="registration.html">Registration</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="questionnaire.html">Questionnaire</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.html">Calculate</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
-                <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.html">Contact Us</a></li>
-            </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 active px-3" href="registration.html">Registration</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="insert.php">Insert</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="delete_product.php">Delete</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="search_products.php">Search</a></li>
+            <li class="nav-item"><a class="nav-link fs-6  px-3" href="farmerProfile.php">Farmer Profiles</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="questionnaire.html">Questionnaire</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.php">Calculate</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
+            <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.php">Contact Us</a></li>
+        </ul>
         </div>
     </div>
 </nav>
@@ -125,8 +128,6 @@
 <!-- Form Validation Script -->
 <script>
   document.getElementById("registrationForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
-  
     // Get and trim form values
     const name = document.getElementById("fullName").value.trim();
     const email = document.getElementById("userEmail").value.trim();
@@ -135,66 +136,67 @@
     const farmType = document.getElementById("farmType").value;
     const password = document.getElementById("password").value.trim();
 
-
     // Clear previous errors
-      document.getElementById("nameError").innerHTML = "";
-      document.getElementById("emailError").innerHTML = "";
-      document.getElementById("phoneError").innerHTML = "";
-      document.getElementById("locationError").innerHTML = "";
-      document.getElementById("farmTypeError").innerHTML = "";
-      document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+    document.getElementById("locationError").innerHTML = "";
+    document.getElementById("farmTypeError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
 
-      let valid = true;
-    
-  
-    // Validate full name (letters only, at least two words)
+    let valid = true;
+
+    // Validate full name (at least two words)
     const nameRegex = /^[A-Za-z]+\s[A-Za-z]+(\s[A-Za-z]+)*$/;
     if (!nameRegex.test(name)) {
-      document.getElementById("nameError").innerHTML = "Full name must include at least two words (letters only).";
-        valid = false;
+      document.getElementById("nameError").innerHTML = "Full name must include at least two words.";
+      valid = false;
     }
-  
+
     // Validate email
-    const emailRegex =  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (!emailRegex.test(email)) {
       document.getElementById("emailError").innerHTML = "Please enter a valid email address.";
-        valid = false;
+      valid = false;
     }
-  
-    // Validate phone number (must exactly 8 digits)
+
+    // Validate phone number (8 digits)
     const phoneRegex = /^\d{8}$/;
     if (!phoneRegex.test(phone)) {
       document.getElementById("phoneError").innerHTML = "Phone number must be exactly 8 digits.";
       valid = false;
     }
 
-     // Validate farm location (at least 3 letters, letters and spaces only)
-     const locationRegex = /^[A-Za-z\s]{3,}$/;
+    // Validate location (at least 3 letters)
+    const locationRegex = /^[A-Za-z\s]{3,}$/;
     if (!locationRegex.test(location)) {
       document.getElementById("locationError").innerHTML = "Farm location must be at least 3 letters.";
-        valid = false;
+      valid = false;
     }
 
-    // Validate farm type 
+    // Validate farm type
     if (farmType === "") {
       document.getElementById("farmTypeError").innerHTML = "Please select a type of farm.";
-        valid = false;
+      valid = false;
     }
-  
+
     // Validate password
-    const minLength = password.length >= 6;
+    const hasLength = password.length >= 6;
     const hasUppercase = /[A-Z]/.test(password);
     const hasSpecialChar = /[!@#\$%\^&\*]/.test(password);
-    if (!minLength || !hasUppercase || !hasSpecialChar) {
+
+    if (!hasLength || !hasUppercase || !hasSpecialChar) {
       document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters, contain an uppercase letter, and a special character.";
       valid = false;
     }
 
-    if (!valid)
-     return;
-  
+    // If not valid
+    if (!valid) {
+      event.preventDefault();
+    }
+   
   });
-  </script>
+</script>
 
 
 </body>
