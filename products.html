@@ -22,6 +22,7 @@
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="registration.html">Registration</a></li>
                     <li class="nav-item"><a class="nav-link active fs-6 px-3" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="search_products.php">Product Search</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
@@ -269,7 +270,7 @@
                         <p class="card-text text-muted">Earthy, hearty potatoes freshly harvested for rich flavor and texture. Harvested weekly.</p>
                     </div>
                     <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
-                        <span class="fw-bold text-success">$3.50/bag</span>
+                        <span class="fw-bold text-success">3.50/bag</span>
                         <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
@@ -317,7 +318,7 @@
                         <p class="card-text text-muted">Antioxidant-rich berries perfect for baking or snacking.</p>
                     </div>
                     <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
-                        <span class="fw-bold text-success">1.99/pint</span>
+                        <span class="fw-bold text-success">1.99/bag</span>
                         <button class="btn btn-success btn-sm">Add to Cart</button>
                     </div>
                 </div>
@@ -345,12 +346,12 @@
                 <h2 class="text-success mb-3">Join Our Farm Newsletter</h2>
                 <p class="mb-4">Get updates on seasonal availability, farm events, and special offers.</p>
                 
-                <form class="needs-validation" novalidate>
+                <form action="newsletter.php" method="post" class="needs-validation" novalidate>
                     <div class="row g-2 justify-content-center">
                         <div class="col-md-8 col-lg-6 position-relative">
                             <div class="input-group has-validation">
-                                <input type="email" class="form-control" placeholder="Your email address" required>
-                                <button class="btn btn-success" type="submit">Subscribe</button>
+                                <input type="email" class="form-control" name="email" placeholder="Your email address" required>
+                                 <button class="btn btn-success" type="submit">Subscribe</button>
                                 <div class="invalid-feedback">
                                     Please provide a valid email address
                                 </div>
