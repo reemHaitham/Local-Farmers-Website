@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Questionnaire</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-light pb-5">
+
+    <!--header-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary py-3">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" alt="Logo" class="me-3 img-fluid" width="50">
+                <span class="navbar-brand mb-0 h1 fs-4">Local Farmer</span>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="aboutUs.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="registration.html">Registration</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="farmerProfile.html">Farmer Profiles</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 active px-3" href="questionnaire.html">Questionnaire</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="calculate.html">Calculate</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="funpage.html">Funpage</a></li>
+                    <li class="nav-item"><a class="nav-link fs-6 px-3" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br/>
+    <br/>
+    <br/>
+      
+
+<!-- title Section -->
+<section class="d-flex align-items-center" style="background: url('BGall.png') center/cover no-repeat; height: 400px;"> <!--we can use image background in bootstrap-->
+    <div class="container">
+        <h2 class="display-3 text-center text-success fw-bold ">Questionnaire</h2>
+    </div>
+  </section>
+
+  <br/>
+  <br/>
+
+<!-- Main Form Section -->
+<div class="container">
+    <div class="text-center bg-warning text-white mb-4">
+      <h3>Customer Satisfaction Survey</h3>
+      <p>Your opinion grows us stronger!</p>
+    </div>
+
+     <!-- Personal Info -->
+    <form id="feedbackForm" class="bg-white p-4 rounded shadow-sm" action="process_questionnaire.php" method="post">
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Sara Ahmed" required>
+            <div class="text-danger" id="nameError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="userEmail" class="form-label">Email Address</label>
+            <input type="email" id="userEmail" name="userEmail" class="form-control" placeholder="example@domain.com" required>
+            <div class="text-danger" id="emailError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="location" class="form-label">City or Region</label>
+            <input type="text" id="location" name="location" class="form-control" placeholder="City name" required>
+            <div class="text-danger" id="locationError"></div>
+          </div>
+
+        <!--Product Rating -->
+      <h4 class="mb-3 text-success">Experience Feedback</h4>
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rate Product Quality</label>
+        <select id="rating" name="rating" class="form-select" required>
+          <option value="">Select an option</option>
+          <option value="Excellent">Excellent</option>
+          <option value="Good">Good</option>
+          <option value="Average">Fair</option>
+          <option value="Poor">Poor</option>
+        </select>
+        <div class="text-danger" id="ratingError"></div>
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label">Products Purchased:</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="veg" id="veg" value="Vegetables">
+          <label class="form-check-label" for="veg">Vegetables 🥒</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="fruits" name="fruits" value="Fruits">
+          <label class="form-check-label" for="fruits">Fruits 🍒</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="dairy" name="dairy" value="Dairy">
+          <label class="form-check-label" for="dairy">Dairy Products 🧀</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="seeds" name="seeds" value="Seeds">
+          <label class="form-check-label" for="seeds">Seeds 🫘</label>
+        </div>
+        <div class="text-danger" id="productError"></div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Was the delivery/pickup service satisfactory?</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="deliveryYes" name="delivery" value="Yes" required>
+            <label class="form-check-label" for="deliveryYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="deliveryNo" name="delivery" value="No" required>
+            <label class="form-check-label" for="deliveryNo">No</label>
+          </div>
+        </div>
+        <div class="text-danger" id="deliveryError"></div>
+      </div>
+
+      <!--Suggestions-->
+      <h4 class="mb-3 text-success">Suggestions</h4>
+        <div class="mb-3">
+          <label for="suggestions" class="form-label">What can we improve?</label>
+          <textarea id="suggestions" name="suggestions" class="form-control" rows="4" placeholder="Share your suggestions..."></textarea>
+          <div class="text-danger" id="suggestionError"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Would you recommend us to others?</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="recommendYes" name="recommend" value="Yes" required>
+              <label class="form-check-label" for="recommendYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="recommendNo" name="recommend" value="No" required>
+              <label class="form-check-label" for="recommendNo">No</label>
+            </div>
+          </div>
+          <div class="text-danger" id="recommendError"></div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 mt-3">Send Feedback</button>
+      </form>
+    </div>
+
+
+ <!--footer-->
+ <footer class="fixed-bottom bg-secondary py-2">
+    <div class="text-center">
+      <a href="https://github.com/reemHaitham/Local-Farmers-Website.git" >
+        <img src="gitIcon.png" alt="github icon" class="me-2"  width="40" height="40">
+      </a>
+      <a href="mailto:localfarmerweb@gmail.com" >
+        <img src="emailIcon.png" alt="github icon" class="me-2" width="40" height="40">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Add a submit event listener to the feedback form
+    document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+     // Get form values and trim 
+      const name = document.getElementById("fullName").value.trim();  // Get and trim the full name
+      const email = document.getElementById("userEmail").value.trim(); // Get and trim the email address
+      const location = document.getElementById("location").value.trim(); // Get and trim the location 
+      const suggestions = document.getElementById("suggestions").value.trim();  // Get and trim the suggestion
+
+      // Clear previous messages
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("locationError").innerHTML = "";
+    document.getElementById("suggestionError").innerHTML = "";
+    document.getElementById("deliveryError").innerHTML = "";
+    document.getElementById("ratingError").innerHTML = "";
+    document.getElementById("productError").innerHTML = "";
+    document.getElementById("recommendError").innerHTML = "";
+
+    let valid = true;
+      
+  
+      // Validate full name:
+      // Must have at least two words separated by spaces (letters only)
+      const nameRegex = /^[A-Za-z]+\s[A-Za-z]+(\s[A-Za-z]+)*$/;
+      if (!nameRegex.test(name)) {
+        document.getElementById("nameError").innerHTML = "Full name must include at least two words.";
+        valid = false;
+      }
+  
+      // Validate email format:
+      // Should follow email address format  (name@example.com)
+      const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById("emailError").innerHTML = "Invalid email format.";
+        valid = false;
+      }
+  
+      // Validate location input:
+      // Only letters and spaces, and minimum 3 characters
+      const locationRegex = /^[A-Za-z\s]{3,}$/;
+      if (!locationRegex.test(location)) {
+        document.getElementById("locationError").innerHTML = "Location must be at least 3 letters.";
+        valid = false;
+      }
+
+    // Validate suggestions input:
+    // Must be at least 10 characters 
+    if (suggestions.length < 10) {
+      document.getElementById("suggestionError").innerHTML = "Suggestions must be at least 10 characters.";
+      valid = false;
+    }
+
+    // Validate delivery:
+    const deliveryYes = document.getElementById("deliveryYes").checked;
+    const deliveryNo = document.getElementById("deliveryNo").checked;
+
+    if (!deliveryYes && !deliveryNo) {
+      document.getElementById("deliveryError").innerHTML = "Please select Yes or No for delivery service.";
+      valid = false;
+    }
+
+    // Validate Product Rating:
+    if (rating === "") {
+      document.getElementById("ratingError").innerHTML = "Please rate the product quality.";
+      valid = false;
+    }
+
+    // Validate Products Purchased:
+    // at least one
+    const productChecked = 
+      document.getElementById("veg").checked ||
+      document.getElementById("fruits").checked ||
+      document.getElementById("dairy").checked ||
+      document.getElementById("seeds").checked;
+
+    if (!productChecked) {
+      document.getElementById("productError").innerHTML = "Please select at least one product.";
+      valid = false;
+    }
+
+    // Validate Recommend to others:
+    const recommendYes = document.getElementById("recommendYes").checked;
+    const recommendNo = document.getElementById("recommendNo").checked;
+
+    if (!recommendYes && !recommendNo) {
+      document.getElementById("recommendError").innerHTML = "Please select Yes or No.";
+      valid = false;
+    }
+
+    // If invalid, stop here
+    if (!valid)
+     return;
+
+    // All valid :
+    // Display a success message 
+    alert(`Thank you for your feedback, ${name}!`);
+    document.getElementById("feedbackForm").reset(); // Clear the form fields
+  });
+</script>
+
+</body>
+</html>

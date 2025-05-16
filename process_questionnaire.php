@@ -3,14 +3,14 @@ class Feedback {
     private $name, $email, $location, $rating, $products, $delivery, $suggestion, $recommend;
 
     public function __construct($name, $email, $location, $rating, $products, $delivery, $suggestion, $recommend) {
-        $this->name = htmlspecialchars($name);
-        $this->email = htmlspecialchars($email);
-        $this->location = htmlspecialchars($location);
-        $this->rating = htmlspecialchars($rating);
+        $this->name = $name;
+        $this->email = $email;
+        $this->location = $location;
+        $this->rating = $rating;
         $this->products = $products;
-        $this->delivery = htmlspecialchars($delivery);
-        $this->suggestion = htmlspecialchars($suggestion);
-        $this->recommend = htmlspecialchars($recommend);
+        $this->delivery = $delivery;
+        $this->suggestion = $suggestion;
+        $this->recommend = $recommend;
     }
 
     public function displayAsRow() {
@@ -54,7 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo "<!DOCTYPE html>
     <html xmlns='http://www.w3.org/1999/xhtml'>
-    <head><meta charset='UTF-8' /><title>Questionnaire Summary</title></head>
+    <head>
+    <meta charset='UTF-8' />
+    <title>Questionnaire Summary</title>
+    </head>
     <body>
     <h1>Questionnaire Summary</h1>
     <table border='1'>
